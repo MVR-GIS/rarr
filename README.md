@@ -18,7 +18,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 ## Description
 
-<img src="man/figures/r_logo.png" width=250 align="right" />
+<img src="man/figures/r_logo.png" width=150 align="left" />
 
 This package contains a set of functions that are used to help produce a
 Risk Analysis Report. These functions help automate and standardize
@@ -47,7 +47,7 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 
 ## Latest Updates
 
-Check out the [NEWS](News.md) for details on the latest updates.
+Check out the [NEWS](NEWS.md) for details on the latest updates.
 
 ------------------------------------------------------------------------
 

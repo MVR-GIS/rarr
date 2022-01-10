@@ -19,7 +19,7 @@ An `R` Package for producing Risk Analysis Reports
 
 ## Description
 
-<img src="man/figures/r_logo.png" width=250 align="right" />
+<img src="man/figures/r_logo.png" width=150 align="left" />
 
 This package contains a set of functions that are used to help produce a Risk Analysis Report. These functions help automate and standardize report production using the [`bookdown` package](https://bookdown.org/yihui/bookdown/). These functions can be grouped into three broad categories. 
 
@@ -37,7 +37,7 @@ Funding for development and maintenance of FluvialGeomorph has been provided by 
 ***  
 
 ## Latest Updates   
-Check out the [NEWS](News.md) for details on the latest updates.  
+Check out the [NEWS](NEWS.md) for details on the latest updates.  
 
 ***  
 
