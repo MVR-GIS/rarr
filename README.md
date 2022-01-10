@@ -18,7 +18,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 ## Description
 
-<img src="man/figures/r_logo.png" width=150 align="left" />
+<img src="man/figures/r_logo.png" width=75 align="left" />
 
 This package contains a set of functions that are used to help produce a
 Risk Analysis Report. These functions help automate and standardize
@@ -41,7 +41,7 @@ Funding for development and maintenance of FluvialGeomorph has been
 provided by the following US Army Corps of Engineers (USACE) programs:
 
 -   [Brandon Road Interbasin Project
-    (BRIP)](https://www.mvr.usace.army.mil/Missions/Environmental-Stewardship/BR-Interbasin-Project/).
+    (BRIP)](https://www.mvr.usace.army.mil/Missions/Environmental-Stewardship/BR-Interbasin-Project/)
 
 ------------------------------------------------------------------------
 
