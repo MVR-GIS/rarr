@@ -1,6 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="man/figures/kitten-roar4-1.jpg" width=250 align="right" />
+<img src="man/figures/kitten-roar4-2.jpg" width=250 align="right" />
 
 # rarr
 
@@ -18,7 +18,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 ## Description
 
-<img src="man/figures/r-logo.png" width=250 align="right" />
+<img src="man/figures/r_logo.png" width=250 align="right" />
 
 This package contains a set of functions that are used to help produce a
 Risk Analysis Report. These functions help automate and standardize
@@ -40,8 +40,8 @@ grouped into three broad categories.
 Funding for development and maintenance of FluvialGeomorph has been
 provided by the following US Army Corps of Engineers (USACE) programs:
 
--   -   [Brandon Road Interbasin Project
-        (BRIP)](https://www.mvr.usace.army.mil/Missions/Environmental-Stewardship/BR-Interbasin-Project/).
+-   [Brandon Road Interbasin Project
+    (BRIP)](https://www.mvr.usace.army.mil/Missions/Environmental-Stewardship/BR-Interbasin-Project/).
 
 ------------------------------------------------------------------------
 
