@@ -1,0 +1,7 @@
+"OBJECTID","DECISION_NO","DECISION","APPROVAL_STATUS","DECISION_DATE","RATIONALE","IMPLICATIONS","OUTCOMES","FEATURE","TECHNICAL_POC","POC_REVIEW_DATE","OWNER","DISCIPLINE","ACTIVE","FK_TABLE_ID","ENG_LEVEL","LEVEL_DATE","LAST_EDITED_DATE"
+1,"DEC-1","Decision to negotiate acceptable Project Partnership Agreement (PPA) language by Dec 2022","",,"","","","","",,"","","Yes","","",,13-DEC-21 10.49.55.000000000 PM
+321,"DEC-2","Make decision to proceed with left descending bank or right descending bank","",,"","","","","",,"","","Yes","","",,13-DEC-21 11.29.27.000000000 PM
+322,"DEC-3","Choose final site plan approach ","",,"","","","","",,"","","Yes","","",,13-DEC-21 11.29.27.000000000 PM
+323,"DEC-4","Make decision to proceed with a construction schedule to minimize impacts to navigation","",,"","","","","",,"","","Yes","","",,13-DEC-21 11.29.27.000000000 PM
+642,"TEST8","test","Not Approved",,"","","","Boat Launches","",,"","Engineering - Geotechnical ","Yes","","",,28-DEC-21 12.00.00.000000000 AM
+641,"TEST6","test decision","Not Approved",28-DEC-21 12.00.00.000000000 AM,"TEST RATIONALE","","","Acoustic Fish Deterrent","",30-DEC-21 12.00.00.000000000 AM,"","Engineering - Cost ","Yes","","",,28-DEC-21 04.07.00.000000000 PM

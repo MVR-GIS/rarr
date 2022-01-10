@@ -1,0 +1,3 @@
+"OBJECTID","ACTION_NO","ACTION","START_DATE","END_DATE","TECHNICAL_POC","POC_REVIEW_DATE","FEATURE","ACTIVE","DISCIPLINE","MANAGEMENT_STATUS","OWNER","FK_TABLE_ID","ENG_LEVEL","LEVEL_DATE","LAST_EDITED_DATE"
+1,"ACT-001","Perform topographic, bathymetric, utility and boundary surveys",06-JUN-21 12.00.00.000000000 AM,31-AUG-21 12.00.00.000000000 AM,"",,"","Yes","","","","","",,10-DEC-21 09.48.43.000000000 PM
+5,"ACT-002","Physical Modeling of Flushing Lock and Physical Modeling of Downstream Channel",,,"",,"","Yes","","","","","",,10-DEC-21 10.07.22.000000000 PM
