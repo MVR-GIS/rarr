@@ -1,7 +1,7 @@
 Package: rarr
 Type: Package
 Title: Risk Analysis Report in R
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person("Michael", "Dougherty", 
            email = "Michael.P.Dougherty@usace.army.mil", 
