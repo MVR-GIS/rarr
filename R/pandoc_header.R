@@ -20,6 +20,9 @@
 #' @return None (invisible NULL). Returns the Pandoc ATX-style header using
 #'  the `cat` function.
 #'
+#' @examples
+#' pandoc_header("TR-001", 2)
+#'
 pandoc_header <- function (text,
                            level = 1,
                            identifier = NA,
