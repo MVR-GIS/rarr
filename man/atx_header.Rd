@@ -16,3 +16,10 @@ String of ATX-style markdown header.
 Produces the ATX-style markdown header (i.e., a number of
   hashes) for the input header level.
 }
+\examples{
+h1 <- atx_header(1)
+h2 <- atx_header(2)
+h3 <- atx_header(3)
+h4 <- atx_header(4)
+
+}
