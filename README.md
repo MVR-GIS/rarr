@@ -13,7 +13,7 @@ An `R` Package for producing Risk Analysis Reports
 and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.1.1-orange.svg?style=flat-square)](commits/master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2022--01--10-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2022--01--20-yellowgreen.svg)](/commits/master)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 
 ## Description
@@ -57,3 +57,17 @@ Check out the [NEWS](NEWS.md) for details on the latest updates.
     Geographer, Rock Island District, U.S. Army Corps of Engineers
     <a itemprop="sameAs" content="https://orcid.org/0000-0002-1465-5927" href="https://orcid.org/0000-0002-1465-5927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;">
     <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0002-1465-5927</a>
+
+------------------------------------------------------------------------
+
+## Install
+
+To install the `rarr` package, install from GitHub using the `remotes`
+package:
+
+    remotes::install_github(repo = "MVR-GIS/rarr@*release")
+
+## Bug Reports
+
+If you find any bugs using `rarr`, please open an
+[issue](https://github.com/MVR-GIS/rarr/issues).
