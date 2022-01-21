@@ -33,7 +33,6 @@ Allows programmatic creation of a Pandoc ATX-style header
 [`pandoc` extension-header_attributes](https://pandoc.org/MANUAL.html#extension-header_attributes)
 }
 \examples{
-
 pandoc_header("TR-001", 2)
 
 }
