@@ -25,6 +25,7 @@
 #' @importFrom rlang enquo sym quo_name
 #' @importFrom dplyr mutate select relocate
 #' @importFrom stringr str_extract str_to_lower
+#' @importFrom magrittr %>%
 #'
 id_link <- function(df, id_field) {
   # Check inputs

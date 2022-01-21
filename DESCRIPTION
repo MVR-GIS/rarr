@@ -27,4 +27,5 @@ Imports:
     dplyr,
     rlang,
     stringr,
-    tidyr
+    tidyr,
+    magrittr

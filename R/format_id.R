@@ -29,6 +29,7 @@
 #' @importFrom tidyr replace_na
 #' @importFrom rlang enquo sym quo_name
 #' @importFrom dplyr mutate relocate rename select
+#' @importFrom magrittr %>%
 #'
 format_id <- function(df, id_field) {
   # Check inputs
