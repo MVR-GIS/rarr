@@ -1,3 +1,4 @@
+# Get test data
 risk_oracle <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
                                            package = "rarr"),
                                show_col_types = FALSE)

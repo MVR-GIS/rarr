@@ -11,6 +11,16 @@
 #' markdown link requirements.
 #'
 #' @examples
+#' # Get test data
+#' risk_oracle <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
+#'                                            package = "rarr"),
+#'                                show_col_types = FALSE)
+#'
+#' # Cleanup risk number for sorting
+#' risk <- format_id(risk_oracle, "RISK_NO")
+#'
+#' # Create hyperlink to risk_no
+#' risk <- id_link(risk, "risk_no")
 #'
 #' @importFrom rlang enquo sym quo_name
 #' @importFrom dplyr mutate select relocate
