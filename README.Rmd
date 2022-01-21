@@ -49,7 +49,7 @@ Check out the [NEWS](NEWS.md) for details on the latest updates.
 ## Install
 To install the `rarr` package, install from GitHub using the `remotes` package:
 ```{r install, eval=FALSE}
-remotes::install_github(repo = "MVR-GIS/rarr@*release")
+remotes::install_github(repo = "MVR-GIS/rarr")
 ```
 
 ## Bug Reports
