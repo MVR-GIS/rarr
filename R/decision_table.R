@@ -1,0 +1,41 @@
+#' Decision Items
+#'
+#' A table of decision items and their key attributes for project risk analysis.
+#'
+#' @docType data
+#'
+#' @format A data frame of decision items with the following attributes:
+#' \describe{
+#'   \item{OBJECTID}{Geodatabase unique identifier, numeric}
+#'   \item{DECISION_NO}{Decision item number unique identifier, character}
+#'   \item{DECISION}{Description of the action item, character}
+#'   \item{APPROVAL_STATUS}{The approval status of the decision (domain:
+#'                          approval_status - not approved, pending, rejected,
+#'                          approved), character}
+#'   \item{DECISION_DATE}{Effective date of the decision, POSIXct}
+#'   \item{RATIONALE}{Description of the rationale for the decision, character}
+#'   \item{IMPLICATIONS}{Brief description of the expected implications of the
+#'                       decision, character}
+#'   \item{OUTCOMES}{Brief descriptions of the expected outcomes of the
+#'                   decision, character}
+#'   \item{FEATURE}{The primary project feature impacted by this action,
+#'                  character}
+#'   \item{TECHNICAL_POC}{Technical POC for the action, character}
+#'   \item{POC_REVIEW_DATE}{The last date the technical POC reviewed the action
+#'                          item, POSIXct}
+#'   \item{ACTIVE}{Is the item currently active (Yes/No)? character}
+#'   \item{DISCIPLINE}{The primary discipline of the item (domain: discipline),
+#'                     character}
+#'   \item{OWNER}{The owner of the item, character}
+#'   \item{ENG_LEVEL}{Current engagement level of the item (domain: Engagement,
+#'                    Level, 1-5), character}
+#'   \item{LEVEL_DATE}{The date of the current engagement level, POSIXct}
+#'   \item{LAST_EDITED_DATE}{The date the item was last eddited, POSIXct}
+#'   \item{FK_TABLE_ID}{not used}
+#' }
+#'
+#' @keywords datasets
+#'
+#' @source \url{https://egis-app.mvr.usace.army.mil/ords/f?p=131}
+#'
+"decision_table"
