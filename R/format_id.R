@@ -27,7 +27,7 @@
 #'
 #' @importFrom stringr str_to_lower str_extract str_pad str_c
 #' @importFrom tidyr replace_na
-#' @importFrom rlang enquo sym quo_name
+#' @importFrom rlang enquo sym quo_name .data :=
 #' @importFrom dplyr mutate relocate rename select
 #' @importFrom magrittr %>%
 #'
@@ -48,16 +48,18 @@ format_id <- function(df, id_field) {
                                   "\\w+\\b"),
            number_string = str_extract(!!sym(quo_name(in_col)),
                                        "\\b\\w+$"),
-           number = str_extract(number_string, "\\d+"),
-           letter_na = str_extract(number_string, "\\D+"),
-           letter = replace_na(letter_na, replace = ""),
-           letter_lower = str_to_lower(letter),
-           padded = str_pad(number, width = 3, side = "left", pad = "0"),
-           id_fixed = str_c(cat_code, "-", padded, letter_lower)
-           ) %>%
-    rename(!!id := id_fixed) %>%
-    select(!c(cat_code, number_string, number, letter_na, letter,
-              letter_lower, padded)) %>%
+           number = str_extract(.data$number_string, "\\d+"),
+           letter_na = str_extract(.data$number_string, "\\D+"),
+           letter = replace_na(.data$letter_na, replace = ""),
+           letter_lower = str_to_lower(.data$letter),
+           padded = str_pad(.data$number, width = 3, side = "left", pad = "0"),
+           id_fixed = str_c(.data$cat_code, "-",
+                            .data$padded,
+                            .data$letter_lower)) %>%
+    rename(!!id := .data$id_fixed) %>%
+    select(!c(.data$cat_code, .data$number_string, .data$number,
+              .data$letter_na, .data$letter, .data$letter_lower,
+              .data$padded)) %>%
     relocate(!!id, .after = !!in_col)
 
   return(df)

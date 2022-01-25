@@ -22,7 +22,7 @@
 #' # Create hyperlink to risk_no
 #' risk <- id_link(risk, "risk_no")
 #'
-#' @importFrom rlang enquo sym quo_name
+#' @importFrom rlang enquo sym quo_name .data :=
 #' @importFrom dplyr mutate select relocate
 #' @importFrom stringr str_extract str_to_lower
 #' @importFrom magrittr %>%
@@ -73,10 +73,10 @@ id_link <- function(df, id_field) {
                              !!sym(quo_name(in_col)),
                              "](",
                              id_target,
-                             id_field_lower,
+                             .data$id_field_lower,
                              ")")) %>%
-      mutate(!!id_field_link := id_link) %>%
-      select(!c(id_field_lower, id_link))
+      mutate(!!id_field_link := .data$id_link) %>%
+      select(!c(.data$id_field_lower, .data$id_link))
   }
 
   return(df)

@@ -19,7 +19,9 @@
 #' # remove test records
 #' risk <- remove_test_records(risk_oracle, "RISK_NO")
 #'
+#' @importFrom stringr str_to_lower
 #' @importFrom dplyr mutate filter select
+#' @importFrom rlang sym .data :=
 #' @importFrom magrittr %>%
 #'
 remove_test_records <- function(df, id_field) {
@@ -29,9 +31,9 @@ remove_test_records <- function(df, id_field) {
 
   df <- df %>%
     mutate(id := str_to_lower(!!sym(id_field))) %>%
-    mutate(id_test = str_extract(id, "test")) %>%
-    filter(!id_test %in% "test") %>%
-    select(!c(id, id_test))
+    mutate(id_test = str_extract(.data$id, "test")) %>%
+    filter(!.data$id_test %in% "test") %>%
+    select(!c(.data$id, .data$id_test))
 
   return(df)
 }
