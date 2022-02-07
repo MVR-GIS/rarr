@@ -2,10 +2,12 @@
 
 export(atx_header)
 export(convert_date)
+export(format_events)
 export(format_id)
 export(format_risk)
 export(id_link)
 export(pandoc_header)
+export(remove_inactive_records)
 export(remove_test_records)
 importFrom(dplyr,across)
 importFrom(dplyr,arrange)
