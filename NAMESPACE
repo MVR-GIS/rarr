@@ -2,6 +2,7 @@
 
 export(atx_header)
 export(convert_date)
+export(format_discussion)
 export(format_events)
 export(format_id)
 export(format_risk)

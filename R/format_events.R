@@ -18,6 +18,7 @@
 #' @importFrom dplyr rename_with ends_with mutate select relocate arrange
 #'                   group_by ungroup lead
 #' @importFrom lubridate today interval time_length
+#' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
 format_events <- function(events_table) {
