@@ -6,7 +6,7 @@ risk_oracle <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
 # remove test records
 risk <- remove_test_records(risk_oracle, "RISK_NO")
 
-test_that("check records removed", {
+test_that("check test records removed", {
   expect_equal(length(risk_oracle$RISK_NO), 49)
   expect_equal(length(risk$RISK_NO), 47)
 })
