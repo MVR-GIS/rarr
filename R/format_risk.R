@@ -31,13 +31,10 @@ format_risk <- function(risk_table, active = TRUE) {
   # Remove test data
   risk <- rarr::remove_test_records(risk_table, "RISK_NO")
 
-  # Set active_text
-  active_text <- ifelse(active, "Yes", "No")
+  # Filter for active records
+  risk <- rarr::remove_inactive_records(risk, active = TRUE)
 
   risk <- risk %>%
-    # Filter for "Active" records
-    filter(ACTIVE == active_text) %>%
-
     # Rename date fields
     rename_with(.fn = str_to_lower,
                 .cols = ends_with("_date")) %>%
