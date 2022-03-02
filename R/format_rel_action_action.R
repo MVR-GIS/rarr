@@ -32,7 +32,7 @@ format_rel_action_action <- function(db_rel_action_action) {
 
   # Filter for "Active" records
   rel_action_action <- rel_action_action %>%
-    filter(ACTION_ACTIVE == "Yes" & REL_ACTION_ACTIVE == "Yes")
+    filter(.data$ACTION_ACTIVE == "Yes" & .data$REL_ACTION_ACTIVE == "Yes")
 
   # Cleanup id numbers for sorting
   rel_action_action <- rarr::format_id(rel_action_action, "ACTION_NO")
@@ -43,6 +43,6 @@ format_rel_action_action <- function(db_rel_action_action) {
 
   # Reorder fields
   rel_action_action <- rel_action_action %>%
-    relocate(REL_ACTION_ACTIVE, .after = related_action_link)
+    relocate(.data$REL_ACTION_ACTIVE, .after = .data$related_action_link)
 
 }
