@@ -4,10 +4,10 @@
 \alias{format_risk}
 \title{Format Risk}
 \usage{
-format_risk(risk_table, active = TRUE)
+format_risk(db_risk, active = TRUE)
 }
 \arguments{
-\item{risk_table}{data frame; A standard risk table.}
+\item{db_risk}{data frame; A standard risk table.}
 
 \item{active}{logical; Return only active records? TRUE returns active
 records, FALSE returns inactive records. Default = TRUE.}

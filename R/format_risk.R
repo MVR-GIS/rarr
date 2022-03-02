@@ -4,7 +4,7 @@
 #'   by the the reporting functions in this package.
 #'
 #' @export
-#' @param risk_table   data frame; A standard risk table.
+#' @param db_risk   data frame; A standard risk table.
 #' @param active       logical; Return only active records? TRUE returns active
 #'                     records, FALSE returns inactive records. Default = TRUE.
 #'
@@ -23,13 +23,13 @@
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
-format_risk <- function(risk_table, active = TRUE) {
+format_risk <- function(db_risk, active = TRUE) {
   # Check inputs
-  if(!is.data.frame(risk_table)) {stop("risk_table must be a data frame")}
+  if(!is.data.frame(db_risk)) {stop("db_risk must be a data frame")}
   if(is.logical(active) == FALSE) {stop("active must be logical")}
 
   # Remove test data
-  risk <- rarr::remove_test_records(risk_table, "RISK_NO")
+  risk <- rarr::remove_test_records(db_risk, "RISK_NO")
 
   # Filter for active records
   risk <- rarr::remove_inactive_records(risk, active = TRUE)
