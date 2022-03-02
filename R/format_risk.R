@@ -12,10 +12,10 @@
 #'
 #' @examples
 #' # Get test data
-#' risk_table <- rarr::risk_table
+#' db_risk <- rarr::db_risk
 #'
 #' # Format risk
-#' risk <- format_risk(risk_table)
+#' risk <- format_risk(db_risk)
 #'
 #' @importFrom dplyr filter rename_with ends_with rename mutate select relocate
 #'                   arrange distinct desc

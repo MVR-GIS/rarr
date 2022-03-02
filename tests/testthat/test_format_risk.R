@@ -1,9 +1,9 @@
 # Get test data
-risk_table <- rarr::risk_table
+db_risk <- rarr::db_risk
 
 # Format risk
-risk <- format_risk(risk_table)
-risk_inactive <- format_risk(risk_table, active = FALSE)
+risk <- format_risk(db_risk)
+risk_inactive <- format_risk(db_risk, active = FALSE)
 
 test_that("check output data format", {
   expect_true(is.data.frame(risk))
@@ -21,7 +21,7 @@ test_that("check output data format", {
 })
 
 test_that("test records removed", {
-  expect_true(length(risk_table$RISK_NO) >= length(risk$RISK_NO))
+  expect_true(length(db_risk$RISK_NO) >= length(risk$RISK_NO))
 })
 
 test_that("check inactive removed", {
@@ -30,5 +30,5 @@ test_that("check inactive removed", {
 
 test_that("check errors", {
   expect_error(format_risk(1, active = TRUE))
-  expect_error(format_risk(risk_table, active = "1"))
+  expect_error(format_risk(db_risk, active = "1"))
 })
