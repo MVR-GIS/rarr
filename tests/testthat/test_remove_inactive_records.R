@@ -14,7 +14,7 @@ test_that("check active values", {
 })
 
 test_that("handle table with no ACTIVE field", {
-  expect_true(length(events_table$OBJECTID) == length(events_active$OBJECTID))
+  expect_true(length(db_events$OBJECTID) == length(events_active$OBJECTID))
 })
 
 test_that("check errors", {
