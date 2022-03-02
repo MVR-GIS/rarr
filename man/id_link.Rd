@@ -20,12 +20,10 @@ Adds a markdown hyperlink target based on the id_field.
 }
 \examples{
 # Get test data
-risk_oracle <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
-                                           package = "rarr"),
-                               show_col_types = FALSE)
+db_risk <- rarr::db_risk
 
 # Cleanup risk number for sorting
-risk <- format_id(risk_oracle, "RISK_NO")
+risk <- format_id(db_risk, "RISK_NO")
 
 # Create hyperlink to risk_no
 risk <- id_link(risk, "risk_no")
