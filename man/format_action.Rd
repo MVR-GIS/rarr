@@ -17,6 +17,10 @@ Formats an input risk data frame and prepares it for use
   by the the reporting functions in this package.
 }
 \examples{
+# Get test data
+db_action <- rarr::db_action
 
+# Format risk
+action <- format_action(db_action)
 
 }
