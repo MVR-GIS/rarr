@@ -15,15 +15,16 @@ A data frame containing POSIXct date fields.
 }
 \description{
 Converts character date fields to POSIXct format. Converts
-  any field name ending in "_DATE" to POSIXct.
+  any field name ending in "_DATE" to POSIXct. Typically only needed for
+  data exported from Oracle database using .csv output.
 }
 \examples{
 # Get test data
-risk_oracle <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
-                                           package = "rarr"),
-                               show_col_types = FALSE)
+csv_risk <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
+                                        package = "rarr"),
+                            show_col_types = FALSE)
 
 # Convert date character fields
-risk <- convert_date(risk_oracle)
+risk <- convert_date(csv_risk)
 
 }

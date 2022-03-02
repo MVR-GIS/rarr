@@ -1,10 +1,10 @@
 # Get test data
-risk_oracle <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
-                                           package = "rarr"),
-                               show_col_types = FALSE)
+csv_risk <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
+                                        package = "rarr"),
+                            show_col_types = FALSE)
 
 # Convert date character fields
-risk <- convert_date(risk_oracle)
+risk <- convert_date(csv_risk)
 
 test_that("check if dates are POSIXct", {
   expect_true(lubridate::is.POSIXct(risk$POC_REVIEW_DATE))
