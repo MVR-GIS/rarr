@@ -1,7 +1,7 @@
 # Get test data
-events_table <- rarr::events_table
+db_events <- rarr::db_events
 
-events <- format_events(events_table)
+events <- format_events(db_events)
 
 test_that("check output data format", {
   expect_true(is.data.frame(events))
@@ -15,7 +15,7 @@ test_that("check output data format", {
 })
 
 test_that("test records removed", {
-  expect_true(length(events_table$FK_TABLE_ID) >= length(events$FK_TABLE_ID))
+  expect_true(length(db_events$FK_TABLE_ID) >= length(events$FK_TABLE_ID))
 })
 
 test_that("check errors", {

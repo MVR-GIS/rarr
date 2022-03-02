@@ -10,9 +10,9 @@
 #'
 #' @examples
 #' # Get test data
-#' events_table <- rarr::events_table
+#' db_events <- rarr::db_events
 #'
-#' events <- format_events(events_table)
+#' events <- format_events(db_events)
 #'
 #' @importFrom stringr str_extract str_to_lower
 #' @importFrom dplyr rename_with ends_with mutate select relocate arrange

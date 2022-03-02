@@ -18,8 +18,8 @@ Formats an input events data frame and prepares it for use
 }
 \examples{
 # Get test data
-events_table <- rarr::events_table
+db_events <- rarr::db_events
 
-events <- format_events(events_table)
+events <- format_events(db_events)
 
 }
