@@ -4,7 +4,7 @@
 #'   by the the reporting functions in this package.
 #'
 #' @export
-#' @param discussion_table data frame; A standard discussion table.
+#' @param db_discussion data frame; A standard discussion data frame.
 #'
 #' @return A formatted data frame suitable for use by the report functions.
 #'
@@ -19,13 +19,13 @@
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
-format_discussion <- function(discussion_table) {
+format_discussion <- function(db_discussion) {
   # Check inputs
-  if(!is.data.frame(discussion_table)) {
-    stop("discussion_table must be a data frame")}
+  if(!is.data.frame(db_discussion)) {
+    stop("db_discussion must be a data frame")}
 
   # Remove test records
-  discussion <- rarr::remove_test_records(discussion_table, "FK_TABLE_ID")
+  discussion <- rarr::remove_test_records(db_discussion, "FK_TABLE_ID")
 
   # Cleanup discussion number for sorting
   discussion <- rarr::format_id(discussion, "FK_TABLE_ID")

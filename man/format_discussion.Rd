@@ -4,10 +4,10 @@
 \alias{format_discussion}
 \title{Format Discussion}
 \usage{
-format_discussion(discussion_table)
+format_discussion(db_discussion)
 }
 \arguments{
-\item{discussion_table}{data frame; A standard discussion table.}
+\item{db_discussion}{data frame; A standard discussion data frame.}
 }
 \value{
 A formatted data frame suitable for use by the report functions.
