@@ -17,5 +17,9 @@ Formats an input discussion data frame and prepares it for use
   by the the reporting functions in this package.
 }
 \examples{
+# Get test data
+db_discussion <- rarr::db_discussion
+
+discussion <- format_discussion(db_discussion)
 
 }

@@ -9,6 +9,10 @@
 #' @return A formatted data frame suitable for use by the report functions.
 #'
 #' @examples
+#' # Get test data
+#' db_discussion <- rarr::db_discussion
+#'
+#' discussion <- format_discussion(db_discussion)
 #'
 #' @importFrom dplyr rename_with ends_with select relocate
 #' @importFrom stringr str_to_lower

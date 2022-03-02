@@ -1,7 +1,7 @@
 # Get test data
-discussion_table <- rarr::discussion_table
+db_discussion <- rarr::db_discussion
 
-discussion <- format_discussion(discussion_table)
+discussion <- format_discussion(db_discussion)
 
 test_that("check output data format", {
   expect_true(is.data.frame(discussion))
@@ -13,7 +13,7 @@ test_that("check output data format", {
 })
 
 test_that("test records removed", {
-  expect_true(length(discussion_table$FK_TABLE_ID) >=
+  expect_true(length(db_discussion$FK_TABLE_ID) >=
               length(discussion$FK_TABLE_ID))
 })
 
