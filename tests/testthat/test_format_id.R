@@ -1,10 +1,8 @@
 # Get test data
-risk_oracle <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
-                                           package = "rarr"),
-                               show_col_types = FALSE)
+db_risk <- rarr::db_risk
 
 # Cleanup risk number for sorting
-risk <- rarr::format_id(risk_oracle, "RISK_NO")
+risk <- rarr::format_id(db_risk, "RISK_NO")
 
 test_that("check id values", {
   expect_equal(dplyr::filter(risk, risk_no == "TR-011")$risk_no,
