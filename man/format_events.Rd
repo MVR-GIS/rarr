@@ -4,10 +4,10 @@
 \alias{format_events}
 \title{Format Events}
 \usage{
-format_events(events_table)
+format_events(db_events)
 }
 \arguments{
-\item{events_table}{data frame; A standard events table.}
+\item{db_events}{data frame; A standard events table.}
 }
 \value{
 A formatted data frame suitable for use by the report functions.

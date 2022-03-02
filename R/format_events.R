@@ -4,7 +4,7 @@
 #'   by the the reporting functions in this package.
 #'
 #' @export
-#' @param events_table data frame; A standard events table.
+#' @param db_events data frame; A standard events table.
 #'
 #' @return A formatted data frame suitable for use by the report functions.
 #'
@@ -21,12 +21,12 @@
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
-format_events <- function(events_table) {
+format_events <- function(db_events) {
   # Check inputs
-  if(!is.data.frame(events_table)) {stop("risk_table must be a data frame")}
+  if(!is.data.frame(db_events)) {stop("risk_table must be a data frame")}
 
   # Remove test records
-  events <- rarr::remove_test_records(events_table, "FK_TABLE_ID")
+  events <- rarr::remove_test_records(db_events, "FK_TABLE_ID")
 
   # Cleanup risk number for sorting
   events <- rarr::format_id(events, "FK_TABLE_ID")
