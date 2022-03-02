@@ -1,12 +1,12 @@
 # Get test data
-risk_table <- rarr::risk_table
+db_risk <- rarr::db_risk
 
-risk_active <- remove_inactive_records(risk_table, active = TRUE)
-risk_inactive <- remove_inactive_records(risk_table, active = FALSE)
+risk_active <- remove_inactive_records(db_risk, active = TRUE)
+risk_inactive <- remove_inactive_records(db_risk, active = FALSE)
 
 # Data frame with no ACTIVE field
-events_table <- rarr::events_table
-events_active <- remove_inactive_records(events_table)
+db_events <- rarr::db_events
+events_active <- remove_inactive_records(db_events)
 
 test_that("check active values", {
   expect_true(length(filter(risk_active, ACTIVE == "No")$ACTIVE) == 0)

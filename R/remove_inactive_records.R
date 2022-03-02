@@ -12,10 +12,9 @@
 #'
 #' @examples
 #' # Get test data
-#' risk_table <- rarr::risk_table
+#' db_risk <- rarr::db_risk
 #'
-#' risk_active <- remove_inactive_records(risk_table, active = TRUE)
-#' risk_inactive <- remove_inactive_records(risk_table, active = FALSE)
+#' risk_active <- remove_inactive_records(db_risk)
 #'
 #' @importFrom dplyr filter
 #' @importFrom magrittr %>%
