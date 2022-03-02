@@ -40,9 +40,9 @@ format_discussion <- function(discussion_table) {
               .data$ACTIVE)) %>%
 
   # Reorder fields
-    relocate(fk_table_id, .after = .data$FK_TABLE_ID) %>%
-    relocate(RESPONSIBLE_POC, .after = .data$DISCUSSION) %>%
-    relocate(poc_review_date, .after = .data$RESPONSIBLE_POC)
+    relocate(.data$fk_table_id, .after = .data$FK_TABLE_ID) %>%
+    relocate(.data$RESPONSIBLE_POC, .after = .data$DISCUSSION) %>%
+    relocate(.data$poc_review_date, .after = .data$RESPONSIBLE_POC)
 
   return(discussion)
 }

@@ -36,7 +36,7 @@ format_events <- function(events_table) {
 
   events <- events %>%
     # Set engagement level integer field
-    mutate(eng_level = as.numeric(str_extract(ENG_LEVEL, "\\d"))) %>%
+    mutate(eng_level = as.numeric(str_extract(.data$ENG_LEVEL, "\\d"))) %>%
 
     # Rename date fields
     rename_with(.fn = str_to_lower,
@@ -47,11 +47,11 @@ format_events <- function(events_table) {
     select(!c(.data$CREATED_USER, .data$LAST_EDITED_USER)) %>%
 
     # Reorder fields
-    relocate(fk_table_id, .after = FK_TABLE_ID) %>%
-    relocate(fk_table_id_link, .after = .data$fk_table_id) %>%
-    relocate(DESCRIPTION, .after = .data$fk_table_id_link) %>%
-    relocate(level_date, .after = ENG_LEVEL) %>%
-    relocate(eng_level, .after = ENG_LEVEL) %>%
+    relocate(.data$fk_table_id, .after = .data$FK_TABLE_ID) %>%
+    relocate(.data$fk_table_id_link, .after = .data$fk_table_id) %>%
+    relocate(.data$DESCRIPTION, .after = .data$fk_table_id_link) %>%
+    relocate(.data$level_date, .after = .data$ENG_LEVEL) %>%
+    relocate(.data$eng_level, .after = .data$ENG_LEVEL) %>%
 
     # Sort
     arrange(.data$TABLE_NAME, .data$fk_table_id, as.Date(.data$level_date)) %>%

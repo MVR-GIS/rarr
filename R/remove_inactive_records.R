@@ -29,7 +29,7 @@ remove_inactive_records <- function(df, active = TRUE) {
 
   if("ACTIVE" %in% colnames(df)) {
     df <- df %>%
-      filter(ACTIVE == active_text)
+      filter(.data$ACTIVE == active_text)
   }
 
   return(df)
