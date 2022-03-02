@@ -20,4 +20,4 @@
 #'
 #' @source \url{https://egis-app.mvr.usace.army.mil/ords/f?p=131}
 #'
-"rel_action_action_table"
+"db_rel_action_action"

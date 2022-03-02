@@ -20,4 +20,4 @@
 #'
 #' @source \url{https://egis-app.mvr.usace.army.mil/ords/f?p=131}
 #'
-"rel_dec_dec_table"
+"db_rel_dec_dec"

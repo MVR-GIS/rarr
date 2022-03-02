@@ -18,4 +18,4 @@
 #'
 #' @source \url{https://egis-app.mvr.usace.army.mil/ords/f?p=131}
 #'
-"rel_risk_risk_table"
+"db_rel_risk_risk"

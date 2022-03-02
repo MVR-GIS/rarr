@@ -38,4 +38,4 @@
 #'
 #' @source \url{https://egis-app.mvr.usace.army.mil/ords/f?p=131}
 #'
-"decision_table"
+"db_decision"

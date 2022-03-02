@@ -70,6 +70,7 @@
 #'   \item{ENG_LEVEL}{Current engagement level of the item (domain: Engagement,
 #'                    Level, 1-5), character}
 #'   \item{LEVEL_DATE}{The date of the current engagement level, POSIXct}
+#'   \item{TAGS}{Keyword tags used to categorize risk items, character}
 #'   \item{LAST_EDITED_DATE}{The date the item was last eddited, POSIXct}
 #'   \item{PDT_DISC_CONC}{not used}
 #'   \item{PDT_DISC_LIKELI_IMPACT}{not used}
@@ -83,4 +84,4 @@
 #'
 #' @source \url{https://egis-app.mvr.usace.army.mil/ords/f?p=131}
 #'
-"risk_table"
+"db_risk"

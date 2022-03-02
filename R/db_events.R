@@ -26,4 +26,4 @@
 #'
 #' @source \url{https://egis-app.mvr.usace.army.mil/ords/f?p=131}
 #'
-"events_table"
+"db_events"
