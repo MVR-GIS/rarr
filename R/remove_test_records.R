@@ -12,12 +12,10 @@
 #'
 #' @examples
 #' # Get test data
-#' risk_oracle <- readr::read_csv(system.file("extdata", "RISK_MAIN_VIEW.csv",
-#'                                            package = "rarr"),
-#'                                show_col_types = FALSE)
+#' db_risk <- rarr::db_risk
 #'
 #' # remove test records
-#' risk <- remove_test_records(risk_oracle, "RISK_NO")
+#' risk <- remove_test_records(db_risk, "RISK_NO")
 #'
 #' @importFrom stringr str_to_lower
 #' @importFrom dplyr mutate filter select
