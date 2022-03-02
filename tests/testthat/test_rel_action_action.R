@@ -15,4 +15,3 @@ test_that("check output data format", {
 test_that("check errors", {
   expect_error(format_rel_action_action("a"))
 })
-

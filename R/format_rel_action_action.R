@@ -16,7 +16,7 @@
 #' # Format rel_action_action
 #' rel_action_action <- format_rel_action_action(db_rel_action_action)
 #'
-#' @importFrom dplyr relocate
+#' @importFrom dplyr filter relocate
 #' @importFrom rlang .data
 #'
 format_rel_action_action <- function(db_rel_action_action) {
@@ -30,10 +30,6 @@ format_rel_action_action <- function(db_rel_action_action) {
   rel_action_action <- rarr::remove_test_records(rel_action_action,
                                                  "RELATED_ACTION")
 
-  # Filter for "Active" records
-  rel_action_action <- rel_action_action %>%
-    filter(.data$ACTION_ACTIVE == "Yes" & .data$REL_ACTION_ACTIVE == "Yes")
-
   # Cleanup id numbers for sorting
   rel_action_action <- rarr::format_id(rel_action_action, "ACTION_NO")
   rel_action_action <- rarr::format_id(rel_action_action, "RELATED_ACTION")
@@ -41,8 +37,12 @@ format_rel_action_action <- function(db_rel_action_action) {
   # Create hyperlink to related item
   rel_action_action <- rarr::id_link(rel_action_action, "related_action")
 
-  # Reorder fields
   rel_action_action <- rel_action_action %>%
+    # Filter for "Active" records
+    filter(.data$ACTION_ACTIVE == "Yes" & .data$REL_ACTION_ACTIVE == "Yes") %>%
+
+    # Reorder fields
     relocate(.data$REL_ACTION_ACTIVE, .after = .data$related_action_link)
 
+  return(rel_action_action)
 }
