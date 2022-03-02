@@ -32,58 +32,58 @@ file.rename(from = data_files_path,
 ```
 
 ```{r import-csv-files, eval=FALSE}
-risk_table              <- read_csv(system.file("extdata", 
-                                                "RISK_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-events_table            <- read_csv(system.file("extdata", 
-                                                "EVENTS_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-discussion_table        <- read_csv(system.file("extdata",
-                                                "DISCUSSION_LOG_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-action_table            <- read_csv(system.file("extdata", 
-                                                "ACTION_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-decision_table          <- read_csv(system.file("extdata",
-                                                "DECISION_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-rel_action_action_table <- read_csv(system.file("extdata",
-                                                "REL_ACTION_ACTION_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-rel_dec_dec_table       <- read_csv(system.file("extdata",
-                                                "REL_DEC_DEC_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-rel_dec_action_table    <- read_csv(system.file("extdata",
-                                                "REL_DEC_ACTION_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-rel_risk_action_table   <- read_csv(system.file("extdata",
-                                                "REL_RISK_ACTION_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-rel_risk_dec_table      <- read_csv(system.file("extdata",
-                                                "REL_RISK_DEC_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
-rel_risk_risk_table     <- read_csv(system.file("extdata",
-                                                "REL_RISK_RISK_MAIN_VIEW.csv",
-                                                package = "rarr"),
-                                    show_col_types = FALSE)
+risk_db              <- read_csv(system.file("extdata", 
+                                             "RISK_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+events_db            <- read_csv(system.file("extdata", 
+                                             "EVENTS_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+discussion_db        <- read_csv(system.file("extdata",
+                                             "DISCUSSION_LOG_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+action_db            <- read_csv(system.file("extdata", 
+                                             "ACTION_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+decision_db          <- read_csv(system.file("extdata",
+                                             "DECISION_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+rel_action_action_db <- read_csv(system.file("extdata",
+                                             "REL_ACTION_ACTION_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+rel_dec_dec_db       <- read_csv(system.file("extdata",
+                                             "REL_DEC_DEC_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+rel_dec_action_db    <- read_csv(system.file("extdata",
+                                             "REL_DEC_ACTION_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+rel_risk_action_db   <- read_csv(system.file("extdata",
+                                             "REL_RISK_ACTION_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+rel_risk_dec_db      <- read_csv(system.file("extdata",
+                                             "REL_RISK_DEC_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
+rel_risk_risk_db     <- read_csv(system.file("extdata",
+                                             "REL_RISK_RISK_MAIN_VIEW.csv",
+                                             package = "rarr"),
+                                 show_col_types = FALSE)
 ```
 
 ```{r convert-dates, eval=FALSE}
-risk_table       <- convert_date(risk_table)
-events_table     <- convert_date(events_table)
-discussion_table <- convert_date(discussion_table)
-action_table     <- convert_date(action_table)
-decision_table   <- convert_date(decision_table)
+risk_db       <- convert_date(risk_db)
+events_db     <- convert_date(events_db)
+discussion_db <- convert_date(discussion_db)
+action_db     <- convert_date(action_db)
+decision_db   <- convert_date(decision_db)
 ```
 
 # Automatic Update Using `ROracle`
@@ -115,45 +115,45 @@ con_roracle <- ROracle::dbConnect(drv,
 
 ```{r import-oracle-tables, echo=FALSE, warning=FALSE, message=FALSE}
 # Import tables from Oracle
-risk_table              <- ROracle::dbReadTable(con_roracle, 
-                                                "RISK_MAIN_VIEW")
-events_table            <- ROracle::dbReadTable(con_roracle, 
-                                                "EVENTS_MAIN_VIEW")
-discussion_table        <- ROracle::dbReadTable(con_roracle, 
-                                                "DISCUSSION_LOG_MAIN_VIEW")
-action_table            <- ROracle::dbReadTable(con_roracle, 
-                                                "ACTION_MAIN_VIEW")
-decision_table          <- ROracle::dbReadTable(con_roracle, 
-                                                "DECISION_MAIN_VIEW")
-rel_action_action_table <- ROracle::dbReadTable(con_roracle, 
-                                                "REL_ACTION_ACTION_MAIN_VIEW")
-rel_dec_dec_table       <- ROracle::dbReadTable(con_roracle, 
-                                                "REL_DEC_DEC_MAIN_VIEW")
-rel_dec_action_table    <- ROracle::dbReadTable(con_roracle, 
-                                                "REL_DEC_ACTION_MAIN_VIEW")
-rel_risk_action_table   <- ROracle::dbReadTable(con_roracle, 
-                                                "REL_RISK_ACTION_MAIN_VIEW")
-rel_risk_dec_table      <- ROracle::dbReadTable(con_roracle, 
-                                                "REL_RISK_DEC_MAIN_VIEW")
-rel_risk_risk_table     <- ROracle::dbReadTable(con_roracle, 
-                                                "REL_RISK_RISK_MAIN_VIEW")
+risk_db              <- ROracle::dbReadTable(con_roracle, 
+                                             "RISK_MAIN_VIEW")
+events_db            <- ROracle::dbReadTable(con_roracle, 
+                                             "EVENTS_MAIN_VIEW")
+discussion_db        <- ROracle::dbReadTable(con_roracle, 
+                                             "DISCUSSION_LOG_MAIN_VIEW")
+action_db            <- ROracle::dbReadTable(con_roracle, 
+                                             "ACTION_MAIN_VIEW")
+decision_db          <- ROracle::dbReadTable(con_roracle, 
+                                             "DECISION_MAIN_VIEW")
+rel_action_action_db <- ROracle::dbReadTable(con_roracle, 
+                                             "REL_ACTION_ACTION_MAIN_VIEW")
+rel_dec_dec_db       <- ROracle::dbReadTable(con_roracle, 
+                                             "REL_DEC_DEC_MAIN_VIEW")
+rel_dec_action_db    <- ROracle::dbReadTable(con_roracle, 
+                                             "REL_DEC_ACTION_MAIN_VIEW")
+rel_risk_action_db   <- ROracle::dbReadTable(con_roracle, 
+                                             "REL_RISK_ACTION_MAIN_VIEW")
+rel_risk_dec_db      <- ROracle::dbReadTable(con_roracle, 
+                                             "REL_RISK_DEC_MAIN_VIEW")
+rel_risk_risk_db     <- ROracle::dbReadTable(con_roracle, 
+                                             "REL_RISK_RISK_MAIN_VIEW")
 
 # Disconnect from the database
 ROracle::dbDisconnect(con_roracle)
 ```
 
 ```{r save-package-data}
-usethis::use_data(risk_table,
-                  events_table,
-                  discussion_table,
-                  action_table,
-                  decision_table,
-                  rel_action_action_table,
-                  rel_dec_dec_table,
-                  rel_dec_action_table,
-                  rel_risk_action_table,
-                  rel_risk_dec_table,
-                  rel_risk_risk_table,
+usethis::use_data(risk_db,
+                  events_db,
+                  discussion_db,
+                  action_db,
+                  decision_db,
+                  rel_action_action_db,
+                  rel_dec_dec_db,
+                  rel_dec_action_db,
+                  rel_risk_action_db,
+                  rel_risk_dec_db,
+                  rel_risk_risk_db,
                   overwrite = TRUE)
 ```
 
