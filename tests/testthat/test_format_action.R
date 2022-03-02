@@ -1,7 +1,7 @@
 # Get test data
 db_action <- rarr::db_action
 
-# Format risk
+# Format decision
 action <- format_action(db_action)
 
 

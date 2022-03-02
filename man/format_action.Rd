@@ -13,7 +13,7 @@ format_action(db_action)
 A formatted data frame suitable for use by the report functions.
 }
 \description{
-Formats an input risk data frame and prepares it for use
+Formats an input action data frame and prepares it for use
   by the the reporting functions in this package.
 }
 \examples{
