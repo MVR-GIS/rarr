@@ -4,7 +4,8 @@
 #'   it for use by the the reporting functions in this package.
 #'
 #' @export
-#' @param db_rel_dec_action
+#' @param db_rel_dec_action  data frame; A standard `rel_dec_action`
+#'                           data frame.
 #'
 #' @return A formatted data frame suitable for use by the report functions.
 #'
@@ -16,7 +17,7 @@
 format_rel_dec_action <- function(db_rel_dec_action) {
   # Check parameters
   if(!is.data.frame(db_rel_dec_action)) {
-    stop("db_rel_action_action must be a data frame")}
+    stop("db_rel_dec_action must be a data frame")}
 
   # Remove test records
   rel_dec_action <- rarr::remove_test_records(db_rel_dec_action, "DECISION_NO")

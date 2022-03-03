@@ -7,7 +7,8 @@
 format_rel_dec_action(db_rel_dec_action)
 }
 \arguments{
-\item{db_rel_dec_action}{}
+\item{db_rel_dec_action}{data frame; A standard `rel_dec_action`
+data frame.}
 }
 \value{
 A formatted data frame suitable for use by the report functions.
