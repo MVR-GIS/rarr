@@ -7,7 +7,7 @@
 #' @param db_rel_risk_action   data frame; A standard `rel_risk_action`
 #'                             data frame.
 #'
-#' @return
+#' @return A formatted data frame suitable for use by the report functions.
 #'
 #' @examples
 format_rel_risk_action <- function(db_rel_risk_action) {
