@@ -1,0 +1,95 @@
+---
+title: "gpg_signed_commits"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{gpg_signed_commits}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Signing Git commits Using GPG
+[GNU Privacy Handbook](https://gnupg.org/gph/en/manual.html)
+
+## GnuPG
+[GnuPG: gpg](https://gnupg.org/index.html) version 1.4 is installed along with [Git](https://git-scm.com/), so there is no need to install it separately. 
+
+## Generating a new GPG key
+[Generating a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+
+```{bash}
+# version 1 syntax
+gpg --gen-key
+```
+
+```{bash}
+gpg --list-secret-keys --keyid-format=long
+```
+
+
+## Telling Git about your signing key
+[Telling Git about your signing key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+
+```{bash}
+# Set signing key
+git config --global user.signingkey <key>
+
+# Set git to sign all commits
+git config --global commit.gpgsign true
+```
+
+
+## Test your new signing key
+```{bash}
+# in a git repo
+touch test.txt
+git add test.txt
+git commit -m "test signed commits"
+```
+
+```{bash}
+# View signatures
+git log --show-signature
+```
+
+
+## Export GPG
+[Export GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+
+```{bash}
+# Prints the GPG key ID, in ASCII armor format
+gpg --armor --export <key>
+```
+
+* Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`. 
+* Use this copied text in the next step
+
+
+## Adding a new GPG key to your GitHub account
+[Adding a new GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
+
+
+## Check your signed commit
+[Check your signed commit](https://www.garrickadenbuie.com/blog/signed-verified-git-commits-keybase-rstudio/)
+
+```{bash}
+# in a git repo
+touch test.txt
+git add test.txt
+git commit -m "test signed commits"
+```
+
+## Import your GPG key on another computer
+[Import your GPG key on another computer](https://www.garrickadenbuie.com/blog/signed-verified-git-commits-keybase-rstudio/#import-your-gpg-key-on-another-computer)
+
+```{bash}
+# Export and armored
+gpg -a --export-secret-keys <key> 
+```
+
+* Copy the private key test to a temp file. 
+* On the other computer, run the following code. 
+
+```{bash}
+gpg --import <tempfile>
+```
+
