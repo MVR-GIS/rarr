@@ -10,28 +10,40 @@
 #' @return A formatted data frame suitable for use by the report functions.
 #'
 #' @examples
+#' # Get test data
+#' db_rel_risk_action <- rarr::db_rel_risk_action
+#'
+#' # Format rel_risk_action
+#' rel_risk_action <- format_rel_risk_action(db_rel_risk_action)
+#'
+#' @importFrom dplyr filter relocate
+#' @importFrom rlang .data
+#'
 format_rel_risk_action <- function(db_rel_risk_action) {
   # Check parameters
   if(!is.data.frame(db_rel_risk_action)) {
-    stop("db_rel_dec_dec must be a data frame")}
+    stop("db_rel_risk_action must be a data frame")}
 
   # Remove test records
-  rel_risk_action <- remove_test_records(rel_risk_action_oracle, "RISK_NO")
-  rel_risk_action <- remove_test_records(rel_risk_action, "ACTION_NO")
-
-  # Filter for "Active" records
-  rel_risk_action <- rel_risk_action %>%
-    filter(RISK_ACTIVE == "Yes" & ACTION_ACTIVE == "Yes")
+  rel_risk_action <- rarr::remove_test_records(db_rel_risk_action,
+                                               "RISK_NO")
+  rel_risk_action <- rarr::remove_test_records(rel_risk_action,
+                                               "ACTION_NO")
 
   # Cleanup id fields for sorting
-  rel_risk_action <- format_id(rel_risk_action, "RISK_NO")
-  rel_risk_action <- format_id(rel_risk_action, "ACTION_NO")
+  rel_risk_action <- rarr::format_id(rel_risk_action, "RISK_NO")
+  rel_risk_action <- rarr::format_id(rel_risk_action, "ACTION_NO")
 
   # Create hyperlink
-  rel_risk_action <- id_link(rel_risk_action, "risk_no")
-  rel_risk_action <- id_link(rel_risk_action, "action_no")
+  rel_risk_action <- rarr::id_link(rel_risk_action, "risk_no")
+  rel_risk_action <- rarr::id_link(rel_risk_action, "action_no")
 
-  # Reorder fields
   rel_risk_action <- rel_risk_action %>%
-    relocate(ACTION_ACTIVE, .after = action_no_link)
+    # Filter for "Active" records
+    filter(.data$RISK_ACTIVE == "Yes" & .data$ACTION_ACTIVE == "Yes") %>%
+
+    # Reorder fields
+    relocate(.data$ACTION_ACTIVE, .after = .data$action_no_link)
+
+  return(rel_risk_action)
 }
