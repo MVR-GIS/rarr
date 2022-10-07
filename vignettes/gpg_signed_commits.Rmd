@@ -11,16 +11,28 @@ vignette: >
 [GNU Privacy Handbook](https://gnupg.org/gph/en/manual.html)
 
 ## GnuPG
-[GnuPG: gpg](https://gnupg.org/index.html) version 1.4 is installed along with [`Git`](https://git-scm.com/), so there is no need to install it separately. However, you must ensure that the GPG distribution provided with `Git` it is on the system path.  
-* Recent versions of `Git` have `gpg` in the `C:\Program Files\Git\usr\bin` directory. 
+[GnuPG: gpg](https://gnupg.org/index.html) version 2.x is installed along with [`Git for Windows`](https://gitforwindows.org/), so there is no need to install it separately. However, you must ensure that the GPG distribution provided with `Git` is high enough on the system path to be used by Git.  
+```{}
+# Which gpg executable is currently being used?
+where gpg
+
+# What version is being used?
+gpg --version
+
+# Where are keys being stored?
+gpg --list-secret-keys --keyid-format=long
+```
+
+
+* Recent versions of `Git` have will have `gpg` version 2.x in the `C:\Program Files\Git\usr\bin` directory. 
 * Add this folder to `Path` environment variable for your account. 
+* After making this path change, reopen your IDE (PyCharm, RStudio), and run the above commands again to confirm gpg is using the specified gpg version. 
 
 ## Set git default editor
 Change git's default editor from `vim` to `nano`. 
 ```{}
 git config --global core.editor "nano"
 ```
-
 
 ## Generating a new GPG key
 [Generating a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
@@ -39,7 +51,7 @@ gpg --list-secret-keys --keyid-format=long
 ```{}
 # --list-secret-keys output:
 D:\Workspace\rarr>gpg --list-secret-keys --keyid-format=long
-/c/Users/B5PMMMPD/.gnupg/secring.gpg
+/c/Users/B5PMMMPD/.gnupg/pubring.gpg
 ------------------------------------
 sec   2048R/B68FE334FA0C2722 2022-03-04
 uid                          Michael Dougherty <mike.p.doc.71@gmail.com>
@@ -67,10 +79,16 @@ git config --global commit.gpgsign true
 ## Set the trust level of this key
 The following commands will set the computer's GPG trust database. 
 ```{}
-gpg --edit-key mike.p.doc.71@gmail.com
+git config --global gpg.program "C:\Program Files\Git\usr\bin\gpg.exe"
 
 # At the gpg prompt, enter the `trust` command to set the trust level
 gpg> trust
+
+# Follow the prompts to set "ultimate" trust level for this key.
+# Save your changes
+gpg> save
+# Quit without saving changes
+gpg> quit
 ```
 
 
@@ -170,6 +188,7 @@ gpg --edit-key mike.p.doc.71@gmail.com
 
 # At the gpg prompt, enter the `trust` command to set the trust level
 gpg> trust
+gpg> save
 ```
 
 
