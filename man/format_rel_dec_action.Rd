@@ -17,6 +17,3 @@ A formatted data frame suitable for use by the report functions.
 Formats an input `rel_dec_action` data frame and prepares
   it for use by the the reporting functions in this package.
 }
-\examples{
-
-}
