@@ -2,7 +2,7 @@
 db_action <- rarr::db_action
 
 # Format decision
-action <- format_action(db_action)
+action <- wrangle_action(db_action)
 
 
 test_that("check output data format", {
@@ -19,5 +19,5 @@ test_that("check output data format", {
 })
 
 test_that("check errors", {
-  expect_error(format_action("a"))
+  expect_error(wrangle_action("a"))
 })
