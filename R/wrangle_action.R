@@ -1,6 +1,6 @@
-#' @title Format Action
+#' @title Wrangle Action
 #'
-#' @description Formats an input action data frame and prepares it for use
+#' @description Wrangle an input action data frame and prepares it for use
 #'   by the the reporting functions in this package.
 #'
 #' @export
@@ -12,8 +12,8 @@
 #' # Get test data
 #' db_action <- rarr::db_action
 #'
-#' # Format risk
-#' action <- format_action(db_action)
+#' # Wrangle risk
+#' action <- Wrangle_action(db_action)
 #'
 #' @importFrom dplyr filter rename_with ends_with rename mutate select relocate
 #'                   arrange distinct desc
@@ -21,7 +21,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
-format_action <- function(db_action) {
+wrangle_action <- function(db_action) {
   # Check parameters
   if(!is.data.frame(db_action)) {stop("db_action must be a data frame")}
 
