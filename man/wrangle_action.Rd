@@ -21,6 +21,6 @@ Wrangle an input action data frame and prepares it for use
 db_action <- rarr::db_action
 
 # Wrangle risk
-action <- Wrangle_action(db_action)
+action <- wrangle_action(db_action)
 
 }

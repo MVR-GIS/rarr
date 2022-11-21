@@ -13,7 +13,7 @@
 #' db_action <- rarr::db_action
 #'
 #' # Wrangle risk
-#' action <- Wrangle_action(db_action)
+#' action <- wrangle_action(db_action)
 #'
 #' @importFrom dplyr filter rename_with ends_with rename mutate select relocate
 #'                   arrange distinct desc

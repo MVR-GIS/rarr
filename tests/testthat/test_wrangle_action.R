@@ -1,7 +1,7 @@
 # Get test data
 db_action <- rarr::db_action
 
-# Format decision
+# Wrangle action
 action <- wrangle_action(db_action)
 
 
@@ -20,4 +20,6 @@ test_that("check output data format", {
 
 test_that("check errors", {
   expect_error(wrangle_action("a"))
+  expect_error(wrangle_action(18))
+  expect_error(wrangle_action(data.frame()))
 })
