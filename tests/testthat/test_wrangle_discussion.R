@@ -1,7 +1,7 @@
 # Get test data
 db_discussion <- rarr::db_discussion
 
-discussion <- format_discussion(db_discussion)
+discussion <- wrangle_discussion(db_discussion)
 
 test_that("check output data format", {
   expect_true(is.data.frame(discussion))
@@ -18,5 +18,5 @@ test_that("test records removed", {
 })
 
 test_that("check errors", {
-  expect_error(format_discussion(1))
+  expect_error(wrangle_discussion(1))
 })

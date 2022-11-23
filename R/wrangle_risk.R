@@ -1,6 +1,6 @@
-#' @title Format Risk
+#' @title Wrangle Risk
 #'
-#' @description Formats an input risk data frame and prepares it for use
+#' @description Wrangles an input risk data frame and prepares it for use
 #'   by the the reporting functions in this package.
 #'
 #' @export
@@ -15,7 +15,7 @@
 #' db_risk <- rarr::db_risk
 #'
 #' # Format risk
-#' risk <- format_risk(db_risk)
+#' risk <- wrangle_risk(db_risk)
 #'
 #' @importFrom dplyr filter rename_with ends_with rename mutate select relocate
 #'                   arrange distinct desc
@@ -23,7 +23,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
-format_risk <- function(db_risk, active = TRUE) {
+wrangle_risk <- function(db_risk, active = TRUE) {
   # Check inputs
   if(!is.data.frame(db_risk)) {stop("db_risk must be a data frame")}
   if(is.logical(active) == FALSE) {stop("active must be logical")}

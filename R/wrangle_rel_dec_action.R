@@ -1,6 +1,6 @@
-#' @title Format Decisions Related to Actions
+#' @title Wrangle Decisions Related to Actions
 #'
-#' @description Formats an input `rel_dec_action` data frame and prepares
+#' @description Wrangles an input `rel_dec_action` data frame and prepares
 #'   it for use by the the reporting functions in this package.
 #'
 #' @export
@@ -10,11 +10,16 @@
 #' @return A formatted data frame suitable for use by the report functions.
 #'
 #' @examples
+#' # Get test data
+#' db_rel_dec_action <- rarr::db_rel_dec_action
+#'
+#' rel_dec_action <- wrangle_rel_dec_action(db_rel_dec_action)
+#'
 #'
 #' @importFrom dplyr filter relocate
 #' @importFrom rlang .data
 #'
-format_rel_dec_action <- function(db_rel_dec_action) {
+wrangle_rel_dec_action <- function(db_rel_dec_action) {
   # Check parameters
   if(!is.data.frame(db_rel_dec_action)) {
     stop("db_rel_dec_action must be a data frame")}

@@ -1,4 +1,4 @@
-#' @title Format Actions Related to other Actions
+#' @title Wrangles Actions Related to other Actions
 #'
 #' @description Formats an input `rel_action_action` data frame and prepares
 #'   it for use by the the reporting functions in this package.
@@ -13,13 +13,13 @@
 #' # Get test data
 #' db_rel_action_action <- rarr::db_rel_action_action
 #'
-#' # Format rel_action_action
-#' rel_action_action <- format_rel_action_action(db_rel_action_action)
+#' # Wrangle rel_action_action
+#' rel_action_action <- wrangle_rel_action_action(db_rel_action_action)
 #'
 #' @importFrom dplyr filter relocate
 #' @importFrom rlang .data
 #'
-format_rel_action_action <- function(db_rel_action_action) {
+wrangle_rel_action_action <- function(db_rel_action_action) {
   # Check parameters
   if(!is.data.frame(db_rel_action_action)) {
     stop("db_rel_action_action must be a data frame")}

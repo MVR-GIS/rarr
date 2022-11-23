@@ -1,6 +1,6 @@
-#' @title Format Events
+#' @title Wrangle Events
 #'
-#' @description Formats an input events data frame and prepares it for use
+#' @description Wrangles an input events data frame and prepares it for use
 #'   by the the reporting functions in this package.
 #'
 #' @export
@@ -12,7 +12,7 @@
 #' # Get test data
 #' db_events <- rarr::db_events
 #'
-#' events <- format_events(db_events)
+#' events <- wrangle_events(db_events)
 #'
 #' @importFrom stringr str_extract str_to_lower
 #' @importFrom dplyr rename_with ends_with mutate select relocate arrange
@@ -21,7 +21,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
-format_events <- function(db_events) {
+wrangle_events <- function(db_events) {
   # Check inputs
   if(!is.data.frame(db_events)) {stop("risk_table must be a data frame")}
 

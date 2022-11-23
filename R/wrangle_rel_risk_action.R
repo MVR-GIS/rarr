@@ -1,6 +1,6 @@
-#' @title Format Risks Related to Actions
+#' @title Wrangle Risks Related to Actions
 #'
-#' @description Formats an input `rel_risk_action` data frame and prepares
+#' @description Wrangles an input `rel_risk_action` data frame and prepares
 #'   it for use by the the reporting functions in this package.
 #'
 #' @export
@@ -14,12 +14,12 @@
 #' db_rel_risk_action <- rarr::db_rel_risk_action
 #'
 #' # Format rel_risk_action
-#' rel_risk_action <- format_rel_risk_action(db_rel_risk_action)
+#' rel_risk_action <- wrangle_rel_risk_action(db_rel_risk_action)
 #'
 #' @importFrom dplyr filter relocate
 #' @importFrom rlang .data
 #'
-format_rel_risk_action <- function(db_rel_risk_action) {
+wrangle_rel_risk_action <- function(db_rel_risk_action) {
   # Check parameters
   if(!is.data.frame(db_rel_risk_action)) {
     stop("db_rel_risk_action must be a data frame")}

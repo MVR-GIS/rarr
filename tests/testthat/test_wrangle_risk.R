@@ -2,8 +2,8 @@
 db_risk <- rarr::db_risk
 
 # Format risk
-risk <- format_risk(db_risk)
-risk_inactive <- format_risk(db_risk, active = FALSE)
+risk <- wrangle_risk(db_risk)
+risk_inactive <- wrangle_risk(db_risk, active = FALSE)
 
 test_that("check output data format", {
   expect_true(is.data.frame(risk))
@@ -29,6 +29,6 @@ test_that("check inactive removed", {
 })
 
 test_that("check errors", {
-  expect_error(format_risk(1, active = TRUE))
-  expect_error(format_risk(db_risk, active = "1"))
+  expect_error(wrangle_risk(1, active = TRUE))
+  expect_error(wrangle_risk(db_risk, active = "1"))
 })

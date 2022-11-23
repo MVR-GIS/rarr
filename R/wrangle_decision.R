@@ -1,6 +1,6 @@
-#' @title Format Decision
+#' @title Wrangle Decision
 #'
-#' @description Formats an input decision data frame and prepares it for use
+#' @description Wrangle an input decision data frame and prepares it for use
 #'   by the the reporting functions in this package.
 #'
 #' @export
@@ -13,7 +13,7 @@
 #' db_decision <- rarr::db_decision
 #'
 #' # Format decision
-#' decision <- format_decision(db_decision)
+#' decision <- wrangle_decision(db_decision)
 #'
 #' @importFrom dplyr filter rename_with ends_with rename mutate select relocate
 #'                   arrange distinct desc
@@ -21,7 +21,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
-format_decision <- function(db_decision) {
+wrangle_decision <- function(db_decision) {
   # Check parameters
   if(!is.data.frame(db_decision)) {stop("db_decision must be a data frame")}
 

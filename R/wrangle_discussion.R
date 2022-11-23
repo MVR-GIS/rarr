@@ -1,6 +1,6 @@
-#' @title Format Discussion
+#' @title Wrangle Discussion
 #'
-#' @description Formats an input discussion data frame and prepares it for use
+#' @description Wrangle an input discussion data frame and prepares it for use
 #'   by the the reporting functions in this package.
 #'
 #' @export
@@ -12,14 +12,14 @@
 #' # Get test data
 #' db_discussion <- rarr::db_discussion
 #'
-#' discussion <- format_discussion(db_discussion)
+#' discussion <- wrangle_discussion(db_discussion)
 #'
 #' @importFrom dplyr rename_with ends_with select relocate
 #' @importFrom stringr str_to_lower
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #'
-format_discussion <- function(db_discussion) {
+wrangle_discussion <- function(db_discussion) {
   # Check inputs
   if(!is.data.frame(db_discussion)) {
     stop("db_discussion must be a data frame")}

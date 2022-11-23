@@ -2,7 +2,7 @@
 db_decision <- rarr::db_decision
 
 # Format decision
-decision <- format_decision(db_decision)
+decision <- wrangle_decision(db_decision)
 
 test_that("check output data format", {
   expect_true(is.data.frame(decision))
@@ -17,6 +17,6 @@ test_that("check output data format", {
 })
 
 test_that("check errors", {
-  expect_error(format_decision("a"))
+  expect_error(wrangle_decision("a"))
 })
 

@@ -1,7 +1,7 @@
 # Get test data
 db_events <- rarr::db_events
 
-events <- format_events(db_events)
+events <- wrangle_events(db_events)
 
 test_that("check output data format", {
   expect_true(is.data.frame(events))
@@ -19,5 +19,5 @@ test_that("test records removed", {
 })
 
 test_that("check errors", {
-  expect_error(format_risk(1))
+  expect_error(wrangle_events(1))
 })

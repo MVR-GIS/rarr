@@ -2,7 +2,7 @@
 db_rel_action_action <- rarr::db_rel_action_action
 
 # Format rel_action_action
-rel_action_action <- format_rel_action_action(db_rel_action_action)
+rel_action_action <- wrangle_rel_action_action(db_rel_action_action)
 
 test_that("check output data format", {
   expect_true(is.data.frame(rel_action_action))
@@ -13,5 +13,5 @@ test_that("check output data format", {
 })
 
 test_that("check errors", {
-  expect_error(format_rel_action_action("a"))
+  expect_error(wrangle_rel_action_action("a"))
 })

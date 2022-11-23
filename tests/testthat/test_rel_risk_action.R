@@ -2,7 +2,7 @@
 db_rel_risk_action <- rarr::db_rel_risk_action
 
 # Format rel_risk_action
-rel_risk_action <- format_rel_risk_action(db_rel_risk_action)
+rel_risk_action <- wrangle_rel_risk_action(db_rel_risk_action)
 
 test_that("check output data format", {
   expect_true(is.data.frame(rel_risk_action))
@@ -14,5 +14,5 @@ test_that("check output data format", {
 })
 
 test_that("check errors", {
-  expect_error(format_rel_risk_action("a"))
+  expect_error(wrangle_rel_risk_action("a"))
 })
