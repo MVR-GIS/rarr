@@ -1,7 +1,7 @@
 # Get test data
 db_rel_action_action <- rarr::db_rel_action_action
 
-# Format rel_action_action
+# Format rel_dec_action
 rel_action_action <- wrangle_rel_action_action(db_rel_action_action)
 
 test_that("check output data format", {

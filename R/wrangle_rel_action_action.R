@@ -19,6 +19,7 @@
 #' @importFrom dplyr filter relocate
 #' @importFrom rlang .data
 #'
+
 wrangle_rel_action_action <- function(db_rel_action_action) {
   # Check parameters
   if(!is.data.frame(db_rel_action_action)) {
