@@ -7,6 +7,11 @@
 #' @return A kable table of related block items
 #' @export
 #'
+#' @importFrom magrittr %>%
+#' @importFrom kableExtra kable_styling kbl pack_rows column_spec
+#' @importFrom dplyr select
+#'
+#'
 related_blocks_table <- function(related_blocks) {
   related_blocks_df <- related_blocks %>%
     select(item_link, description, adj_count)

@@ -4,10 +4,10 @@
 \alias{network_analysis}
 \title{Network analysis}
 \usage{
-network_analysis(relations, items)
+network_analysis(relate_igraph, items)
 }
 \arguments{
-\item{relations}{data frame; A data frame of all relationships}
+\item{relate_igraph}{list; used for network analysis}
 
 \item{items}{data frame; a dataframe of risk, action, and decision items}
 }
@@ -50,6 +50,9 @@ rel_risk_risk <- rarr::wrangle_rel_risk_risk(db_rel_risk_risk)
 relations<-rarr::create_relations(rel_action_action, rel_dec_action, rel_dec_dec,
 rel_risk_action,rel_risk_dec,rel_risk_risk)
 
-related_blocks<-rarr::network_analysis(relations, items)
+relate_igraph <- igraph::graph_from_data_frame(d = relations,
+vertices = items, directed = FALSE)
+
+related_blocks<-rarr::network_analysis(relate_igraph)
 
 }

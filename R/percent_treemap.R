@@ -3,12 +3,18 @@
 #' @description Creates a treemapify ggplot2 object for the input data frame
 #'   column. This serves as a replacement for a pie chart.
 #'
-#' @param df         data frame to be summarized
+#' @param df         data frame; a risk data frame to be summarized
 #' @param column     unquoted column name to be summarized.
 #' @param title      character; Title for the plot.
 #'
 #' @return A ggplot2 object.
 #' @export
+#'
+#' @importFrom dplyr mutate count
+#' @importFrom ggplot2 ggplot theme aes ggtitle scale_fill_brewer
+#' @importFrom treemapify geom_treemap geom_treemap_text
+#'
+#'
 #'
 percent_treemap <- function(df, column, title) {
   # Enquote the column

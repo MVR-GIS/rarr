@@ -7,7 +7,7 @@
 percent_treemap(df, column, title)
 }
 \arguments{
-\item{df}{data frame to be summarized}
+\item{df}{data frame; a risk data frame to be summarized}
 
 \item{column}{unquoted column name to be summarized.}
 

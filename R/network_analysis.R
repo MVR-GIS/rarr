@@ -1,6 +1,6 @@
 #' Network analysis
 #'
-#' @param relations data frame; A data frame of all relationships
+#' @param relate_igraph list; used for network analysis
 #' @param items data frame; a dataframe of risk, action, and decision items
 #'
 #' @return A "related blocks" data frame to be used to create related blocks
@@ -38,20 +38,19 @@
 #' relations<-rarr::create_relations(rel_action_action, rel_dec_action, rel_dec_dec,
 #' rel_risk_action,rel_risk_dec,rel_risk_risk)
 #'
-#' related_blocks<-rarr::network_analysis(relations, items)
+#' relate_igraph <- igraph::graph_from_data_frame(d = relations,
+#' vertices = items, directed = FALSE)
+#'
+#' related_blocks<-rarr::network_analysis(relate_igraph)
 #'
 #' @importFrom igraph graph_from_data_frame degree simplify cohesive_blocks
 #' as_adj_list V as_ids
 #' @importFrom forcats as_factor
 #' @importFrom dplyr left_join arrange relocate select mutate group_by summarise
-#' bind_rows n
+#' bind_rows n desc
 #'
 #'
-network_analysis <- function(relations, items) {
-  relate_igraph <- igraph::graph_from_data_frame(d = relations,
-                                                 vertices = items,
-                                                 directed = FALSE)
-
+network_analysis <- function(relate_igraph, items) {
   # Set vertex colors and size
   clr <- as.factor(V(relate_igraph)$id_type)
   levels(clr) <- c("#D55E00", "#E69F00", "#0072B2")

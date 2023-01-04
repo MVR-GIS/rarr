@@ -31,21 +31,17 @@ relations<-rarr::create_relations(rel_action_action, rel_dec_action, rel_dec_dec
                                   rel_risk_action,rel_risk_dec,rel_risk_risk)
 
 relate_igraph<- igraph::graph_from_data_frame(d = relations,
-                                 vertices = items,
-                                 directed = FALSE)
+                                              vertices = items,
+                                              directed = FALSE)
 
-#example
 related_blocks<-rarr::network_analysis(relate_igraph, items)
 
-test_that("check output data format", {
-  expect_true(is.data.frame(related_blocks))
-  expect_true("block_no" %in% colnames(related_blocks))
-  expect_true("item_id" %in% colnames(related_blocks))
-  expect_true("degree" %in% colnames(related_blocks))
-  expect_true("adj_count" %in% colnames(related_blocks))
-  expect_true("item_link" %in% colnames(related_blocks))
-  expect_true("description" %in% colnames(related_blocks))
-  expect_true("id_type" %in% colnames(related_blocks))
-  expect_true("FEATURE" %in% colnames(related_blocks))
-  expect_true("DISCIPLINE" %in% colnames(related_blocks))
+#example
+block_table<-rarr::related_blocks_table(related_blocks)
+
+# Test data type of block_table
+tabletype<-class(block_table)
+test_that("Check kable object", {
+  expect_true("kableExtra" %in% tabletype)
+  expect_true("knitr_kable" %in% tabletype)
 })
