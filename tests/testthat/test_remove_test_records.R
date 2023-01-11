@@ -5,8 +5,8 @@ db_risk <- rarr::db_risk
 risk <- remove_test_records(db_risk, "RISK_NO")
 
 test_that("check test records removed", {
-  expect_equal(length(db_risk$RISK_NO), 52)
-  expect_equal(length(risk$RISK_NO), 51)
+  expect_equal(length(db_risk$RISK_NO), 59)
+  expect_equal(length(risk$RISK_NO), 55)
 })
 
 test_that("check errors", {
