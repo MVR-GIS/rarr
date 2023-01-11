@@ -16,3 +16,13 @@ A kable table styled for reporting.
 Produces an action register table of the input action
   data frame.
 }
+\examples{
+#Get test data
+db_action <- rarr::db_action
+
+action <- wrangle_action(db_action)
+
+#example
+action_register<- action_register_table(action)
+
+}

@@ -7,6 +7,22 @@
 #'
 #' @return silently returns a plot object
 #'
+#' @examples
+#' # Get test data
+#' db_risk <- rarr::db_risk
+#'
+#' #Wrangle test data
+#' risk <- rarr::wrangle_risk(db_risk)
+#'
+#' #example
+#' risk_pies(risk)
+#'
+#' @importFrom dplyr group_by summarize mutate arrange recode
+#' @importFrom tidyr drop_na
+#' @importFrom magrittr %>%
+#' @importFrom graphics par pie title
+#' @importFrom stats end
+#'
 risk_pies <- function(risk_df) {
   efficacy_risk_count <- risk_df %>%
     group_by(EFFICACY_RISK) %>%

@@ -15,6 +15,7 @@
 #'
 #' items <- wrangle_items(risk, action, decision)
 #' @importFrom dplyr bind_rows select rename
+#' @importFrom magrittr %>%
 #'
 
 wrangle_items<-function(risk,action,decision){

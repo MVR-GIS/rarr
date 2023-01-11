@@ -19,3 +19,19 @@ A kable table styled for reporting.
 Creates a table of discussion items from the input discussion
   data frame.
 }
+\examples{
+#Get test data
+db_discussion <- rarr::db_discussion
+discussion <- wrangle_discussion(db_discussion)
+#Assign filter
+x<-"ACT-006"
+discussion_item <- discussion \%>\%
+filter(TABLE_NAME == "ACTION_REGISTER") \%>\%
+filter(fk_table_id == x)
+
+#example
+discussion_table<-discussion_table(discussion_item,
+discussion_item$fk_table_id)
+
+
+}

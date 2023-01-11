@@ -22,6 +22,7 @@
 #'
 #' @importFrom dplyr mutate across ends_with
 #' @importFrom lubridate dmy_hms
+#' @importFrom magrittr %>%
 #'
 convert_date <- function(df) {
   # Check inputs

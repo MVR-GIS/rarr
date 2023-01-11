@@ -6,6 +6,20 @@
 #' @param decision   data frame; A data frame of decisions.
 #'
 #' @return A kable table styled for reporting.
+#'
+#' @examples
+#' #Get test data
+#' db_decision <- rarr::db_decision
+#'
+#' decision <- wrangle_decision(db_decision)
+#'
+#' #example
+#' decision_register<-decision_register_table(decision)
+#'
+#' @importFrom magrittr %>%
+#' @importFrom dplyr mutate select
+#' @importFrom kableExtra kbl kable_styling column_spec
+#'
 #' @export
 #'
 decision_register_table <- function(decision) {

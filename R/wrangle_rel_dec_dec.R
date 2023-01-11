@@ -17,6 +17,7 @@
 #'
 #' @importFrom dplyr filter relocate
 #' @importFrom rlang .data
+#' @importFrom magrittr %>%
 #'
 wrangle_rel_dec_dec <- function(db_rel_dec_dec) {
   # Check parameters

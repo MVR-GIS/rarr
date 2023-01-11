@@ -32,4 +32,10 @@ Imports:
     stringr,
     tidyr,
     magrittr,
-    lubridate
+    lubridate,
+    forcats,
+    ggplot2,
+    igraph,
+    kableExtra,
+    timevis,
+    treemapify

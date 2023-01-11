@@ -8,7 +8,24 @@
 #' @return A kable table styled for reporting.
 #' @export
 #'
-impact_outcome_table <- function(risk_df) {
+#' @examples
+#' # Get test data
+#' db_risk <- rarr::db_risk
+#'
+#' # Wrangle risk data
+#' risk <- rarr::wrangle_risk(db_risk)
+#'
+#' #example
+#' impact_outcome_table<-create_impact_outcome_table(risk)
+#'
+#' @importFrom dplyr mutate select
+#' @importFrom tidyr pivot_longer
+#' @importFrom kableExtra kable_styling kbl column_spec
+#' @importFrom stringr str_to_title
+#' @importFrom magrittr %>%
+#'
+#'
+create_impact_outcome_table <- function(risk_df) {
   # pre-process the data
   impact_outcome <- risk_df %>%
     select(IMPACT, OUTCOME) %>%

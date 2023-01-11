@@ -7,7 +7,8 @@
 #' table
 #' @export
 #'
-#' @examples # Get test data
+#' @examples
+#' # Get test data
 #' db_risk <- rarr::db_risk
 #' db_action <- rarr::db_action
 #' db_decision <- rarr::db_decision
@@ -47,12 +48,13 @@
 #' as_adj_list V as_ids
 #' @importFrom forcats as_factor
 #' @importFrom dplyr left_join arrange relocate select mutate group_by summarise
-#' bind_rows n desc
-#'
+#' bind_rows n desc rename
+#' @importFrom utils stack
+#' @importFrom magrittr %>%
 #'
 network_analysis <- function(relate_igraph, items) {
   # Set vertex colors and size
-  clr <- as.factor(V(relate_igraph)$id_type)
+  clr <- as_factor(V(relate_igraph)$id_type)
   levels(clr) <- c("#D55E00", "#E69F00", "#0072B2")
   igraph::V(relate_igraph)$color <- as.character(clr)
   igraph::V(relate_igraph)$size  <-

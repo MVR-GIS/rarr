@@ -10,6 +10,27 @@
 #' @return A kable table styled for reporting.
 #' @export
 #'
+#'
+#' @importFrom kableExtra kable_styling kbl column_spec
+#' @importFrom dplyr select arrange mutate desc
+#' @importFrom magrittr %>%
+#' @importFrom lubridate as_date
+#'
+#' @examples
+#' #Get test data
+#' db_discussion <- rarr::db_discussion
+#' discussion <- wrangle_discussion(db_discussion)
+#' #Assign filter
+#' x<-"ACT-006"
+#' discussion_item <- discussion %>%
+#' filter(TABLE_NAME == "ACTION_REGISTER") %>%
+#' filter(fk_table_id == x)
+#'
+#' #example
+#' discussion_table<-discussion_table(discussion_item,
+#' discussion_item$fk_table_id)
+#'
+#'
 discussion_table <- function(discussion_df, items) {
   # pre-process the data
   discussion_items <- discussion_df %>%

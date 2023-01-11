@@ -15,3 +15,14 @@ silently returns a plot object
 \description{
 Creates pie charts of risk assessments.
 }
+\examples{
+# Get test data
+db_risk <- rarr::db_risk
+
+#Wrangle test data
+risk <- rarr::wrangle_risk(db_risk)
+
+#example
+risk_pies(risk)
+
+}

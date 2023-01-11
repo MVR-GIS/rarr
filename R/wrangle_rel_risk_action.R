@@ -18,6 +18,7 @@
 #'
 #' @importFrom dplyr filter relocate
 #' @importFrom rlang .data
+#' @importFrom magrittr %>%
 #'
 wrangle_rel_risk_action <- function(db_rel_risk_action) {
   # Check parameters

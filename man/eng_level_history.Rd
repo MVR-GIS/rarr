@@ -7,9 +7,9 @@
 eng_level_history(events_df, items, show_item_link = TRUE)
 }
 \arguments{
-\item{events_df}{data frame; An events data frame}
-
 \item{items}{character; A character vector of item identifiers}
+
+\item{events}{data frame; An events data frame}
 
 \item{show_link}{logical; Show item link and group the table by item type.}
 }
@@ -19,4 +19,20 @@ A kable table styled for reporting.
 \description{
 Produces an engagement level history table of the input events
   data frame.
+}
+\examples{
+# Get test data
+db_events <- rarr::db_events
+
+events <- wrangle_events(db_events)
+x <- "CA-003"
+
+events_item <- events \%>\%
+  filter(TABLE_NAME == "RISK_REGISTER") \%>\%
+  filter(fk_table_id == x)
+
+#Example
+eng_level_table <- eng_level_history(events_item, events_item$fk_table_id,
+show_item_link = TRUE)
+
 }

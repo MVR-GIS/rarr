@@ -35,6 +35,7 @@ Create relations
 \examples{
 # Get test data
 db_rel_action_action <- rarr::db_rel_action_action
+db_rel_dec_action <- rarr::db_rel_dec_action
 db_rel_dec_dec<- rarr::db_rel_dec_dec
 db_rel_risk_action <- rarr::db_rel_risk_action
 db_rel_risk_dec <- rarr::db_rel_risk_dec
@@ -42,6 +43,7 @@ db_rel_risk_risk <- rarr::db_rel_risk_risk
 
 # Wrangle data
 rel_action_action <- rarr::wrangle_rel_action_action(db_rel_action_action)
+rel_dec_action<-rarr::wrangle_rel_dec_action(db_rel_dec_action)
 rel_dec_dec <- rarr::wrangle_rel_dec_dec(db_rel_dec_dec)
 rel_risk_action <- rarr::wrangle_rel_risk_action(db_rel_risk_action)
 rel_risk_dec <- rarr::wrangle_rel_risk_dec(db_rel_risk_dec)

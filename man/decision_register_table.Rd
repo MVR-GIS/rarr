@@ -16,3 +16,13 @@ A kable table styled for reporting.
 Produces a decision register table of the input decision
   data frame.
 }
+\examples{
+#Get test data
+db_decision <- rarr::db_decision
+
+decision <- wrangle_decision(db_decision)
+
+#example
+decision_register<-decision_register_table(decision)
+
+}

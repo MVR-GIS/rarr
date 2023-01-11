@@ -18,6 +18,7 @@
 #'
 #' @importFrom dplyr filter relocate
 #' @importFrom rlang .data
+#' @importFrom magrittr %>%
 #'
 
 wrangle_rel_action_action <- function(db_rel_action_action) {

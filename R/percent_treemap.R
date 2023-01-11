@@ -13,6 +13,7 @@
 #' @importFrom dplyr mutate count
 #' @importFrom ggplot2 ggplot theme aes ggtitle scale_fill_brewer
 #' @importFrom treemapify geom_treemap geom_treemap_text
+#' @importFrom magrittr %>%
 #'
 #'
 #'

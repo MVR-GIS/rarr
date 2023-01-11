@@ -15,3 +15,13 @@ risk_register_table(risk)
 \description{
 Produces a risk register table of the input risk data frame.
 }
+\examples{
+#Get test data
+db_risk <- rarr::db_risk
+
+risk <- wrangle_risk(db_risk)
+
+#example
+risk_register<-rarr::risk_register_table(risk)
+
+}

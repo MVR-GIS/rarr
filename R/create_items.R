@@ -22,6 +22,7 @@
 #' items<-create_items(risk, action,decision)
 #'
 #' @importFrom dplyr select rename bind_rows
+#' @importFrom magrittr %>%
 #'
 create_items <- function(risk, action, decision) {
   risk_items <- risk %>%

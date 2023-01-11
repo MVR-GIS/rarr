@@ -13,6 +13,7 @@
 #'
 #' @return A `timevis` created timeline visualization `htmlwidgets` object.
 #' @importFrom timevis timevis
+#' @importFrom dplyr mutate
 #'
 #' @examples
 #' db_risk <- rarr::db_risk

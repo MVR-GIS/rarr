@@ -5,8 +5,21 @@
 #'
 #' @param action   data frame; A data frame of actions.
 #'
+#' @examples
+#' #Get test data
+#' db_action <- rarr::db_action
+#'
+#' action <- wrangle_action(db_action)
+#'
+#' #example
+#' action_register<- action_register_table(action)
+#'
 #' @return A kable table styled for reporting.
 #' @export
+#' @importFrom dplyr select mutate
+#' @importFrom kableExtra kbl kable_styling column_spec
+#' @importFrom magrittr %>%
+#' @importFrom lubridate as_date
 #'
 action_register_table <- function(action) {
   action_df <- action %>%
