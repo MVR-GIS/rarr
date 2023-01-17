@@ -53,6 +53,6 @@ rel_risk_action,rel_risk_dec,rel_risk_risk)
 relate_igraph <- igraph::graph_from_data_frame(d = relations,
 vertices = items, directed = FALSE)
 
-related_blocks<-rarr::network_analysis(relate_igraph)
+related_blocks<-rarr::network_analysis(relate_igraph, items)
 
 }

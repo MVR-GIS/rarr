@@ -24,15 +24,13 @@ Creates a table of discussion items from the input discussion
 library(magrittr)
 db_discussion <- rarr::db_discussion
 discussion <- wrangle_discussion(db_discussion)
-#Assign filter
+
 x<-"ACT-006"
 discussion_item <- discussion \%>\%
-filter(discussion$TABLE_NAME == "ACTION_REGISTER") \%>\%
-filter(discussion$fk_table_id == x)
-
+  dplyr::filter(TABLE_NAME == "ACTION_REGISTER") \%>\%
+  dplyr::filter(fk_table_id == x)
 #example
-discussion_table<-discussion_table(discussion_item,
-discussion_item$fk_table_id)
+discussion_table<-discussion_table(discussion_item, discussion_item$fk_table_id)
 
 
 }

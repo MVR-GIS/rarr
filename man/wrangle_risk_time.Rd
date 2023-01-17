@@ -23,6 +23,6 @@ db_risk <- rarr::db_risk
 risk<- rarr::wrangle_risk(db_risk)
 
 # Wrangle risk_time for timeline
-risk_time <- wrangle_risk_time(db_risk)
+risk_time <- wrangle_risk_time(risk)
 
 }

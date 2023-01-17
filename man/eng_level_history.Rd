@@ -23,13 +23,14 @@ Produces an engagement level history table of the input events
 \examples{
 # Get test data
 db_events <- rarr::db_events
+library(magrittr)
 
 events <- wrangle_events(db_events)
 x <- "CA-003"
 
 events_item <- events \%>\%
-  filter(TABLE_NAME == "RISK_REGISTER") \%>\%
-  filter(fk_table_id == x)
+  dplyr::filter(TABLE_NAME == "RISK_REGISTER") \%>\%
+  dplyr::filter(fk_table_id == x)
 
 #Example
 eng_level_table <- eng_level_history(events_item, events_item$fk_table_id,

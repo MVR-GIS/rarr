@@ -42,7 +42,7 @@
 #' relate_igraph <- igraph::graph_from_data_frame(d = relations,
 #' vertices = items, directed = FALSE)
 #'
-#' related_blocks<-rarr::network_analysis(relate_igraph)
+#' related_blocks<-rarr::network_analysis(relate_igraph, items)
 #'
 #' @importFrom igraph graph_from_data_frame degree simplify cohesive_blocks
 #' as_adj_list V as_ids

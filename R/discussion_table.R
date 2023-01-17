@@ -21,23 +21,21 @@
 #' library(magrittr)
 #' db_discussion <- rarr::db_discussion
 #' discussion <- wrangle_discussion(db_discussion)
-#' #Assign filter
+#'
 #' x<-"ACT-006"
 #' discussion_item <- discussion %>%
-#' filter(discussion$TABLE_NAME == "ACTION_REGISTER") %>%
-#' filter(discussion$fk_table_id == x)
-#'
+#'   dplyr::filter(TABLE_NAME == "ACTION_REGISTER") %>%
+#'   dplyr::filter(fk_table_id == x)
 #' #example
-#' discussion_table<-discussion_table(discussion_item,
-#' discussion_item$fk_table_id)
+#' discussion_table<-discussion_table(discussion_item, discussion_item$fk_table_id)
 #'
 #'
 discussion_table <- function(discussion_df, items) {
   # pre-process the data
   discussion_items <- discussion_df %>%
-    select(DISCUSSION, RESPONSIBLE_POC, poc_review_date) %>%
-    arrange(desc(poc_review_date)) %>%
-    mutate(poc_review_date = as_date(poc_review_date))
+    select(.data$DISCUSSION, .data$RESPONSIBLE_POC, .data$poc_review_date) %>%
+    arrange(desc(.data$poc_review_date)) %>%
+    mutate(poc_review_date = as_date(.data$poc_review_date))
 
   col_names <- c("Discussion Topic", "POC", "Date")
 

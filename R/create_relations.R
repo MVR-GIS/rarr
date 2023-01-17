@@ -44,44 +44,44 @@ create_relations <-
            rel_risk_dec,
            rel_risk_risk) {
     rel_a_a <- rel_action_action %>%
-      select(action_no, related_action) %>%
-      rename(from = action_no,
-             to = related_action) %>%
+      select(.data$action_no, .data$related_action) %>%
+      rename(from = .data$action_no,
+             to = .data$related_action) %>%
       mutate(id_type_1 = "action",
              id_type_2 = "action")
 
     rel_d_a <- rel_dec_action %>%
-      select(decision_no, action_no) %>%
-      rename(from = decision_no,
-             to = action_no) %>%
+      select(.data$decision_no, .data$action_no) %>%
+      rename(from = .data$decision_no,
+             to = .data$action_no) %>%
       mutate(id_type_1 = "decision",
              id_type_2 = "action")
 
     rel_d_d <- rel_dec_dec %>%
-      select(decision_no, related_decision) %>%
-      rename(from = decision_no,
-             to = related_decision) %>%
+      select(.data$decision_no, .data$related_decision) %>%
+      rename(from = .data$decision_no,
+             to = .data$related_decision) %>%
       mutate(id_type_1 = "decision",
              id_type_2 = "decision")
 
     rel_r_a <- rel_risk_action %>%
-      select(risk_no, action_no) %>%
-      rename(from = risk_no,
-             to = action_no) %>%
+      select(.data$risk_no, .data$action_no) %>%
+      rename(from = .data$risk_no,
+             to = .data$action_no) %>%
       mutate(id_type_1 = "risk",
              id_type_2 = "action")
 
     rel_r_d <- rel_risk_dec %>%
-      select(risk_no, decision_no) %>%
-      rename(from = risk_no,
-             to = decision_no) %>%
+      select(.data$risk_no, .data$decision_no) %>%
+      rename(from = .data$risk_no,
+             to = .data$decision_no) %>%
       mutate(id_type_1 = "risk",
              id_type_2 = "decision")
 
     rel_r_r <- rel_risk_risk %>%
-      select(risk_no, related_risk) %>%
-      rename(from = risk_no,
-             to = related_risk) %>%
+      select(.data$risk_no, .data$related_risk) %>%
+      rename(from = .data$risk_no,
+             to = .data$related_risk) %>%
       mutate(id_type_1 = "risk",
              id_type_2 = "risk")
 

@@ -10,16 +10,18 @@
 #' @return A kable table styled for reporting.
 #' @export
 #'
+#'
 #' @examples
 #' # Get test data
 #' db_events <- rarr::db_events
+#' library(magrittr)
 #'
 #' events <- wrangle_events(db_events)
 #' x <- "CA-003"
 #'
 #' events_item <- events %>%
-#'   filter(TABLE_NAME == "RISK_REGISTER") %>%
-#'   filter(fk_table_id == x)
+#'   dplyr::filter(TABLE_NAME == "RISK_REGISTER") %>%
+#'   dplyr::filter(fk_table_id == x)
 #'
 #' #Example
 #' eng_level_table <- eng_level_history(events_item, events_item$fk_table_id,
@@ -44,8 +46,8 @@ eng_level_history <-
     if (show_item_link) {
       evnts <- select(
         events_level,
-        fk_table_id_link,
-        ENG_LEVEL,
+        .data$fk_table_id_link,
+        .data$ENG_LEVEL,
         level_date,
         DESCRIPTION,
         duration_days
@@ -58,10 +60,10 @@ eng_level_history <-
     }
     if (!show_item_link) {
       evnts <- select(events_level,
-                      ENG_LEVEL,
+                      .data$ENG_LEVEL,
                       level_date,
-                      DESCRIPTION,
-                      duration_days)
+                      .data$DESCRIPTION,
+                      .data$duration_days)
       col_names <- c("Level", "Date",
                      "Reason for level change", "Duration (days)")
     }
