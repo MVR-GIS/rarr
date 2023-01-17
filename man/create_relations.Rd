@@ -48,7 +48,7 @@ rel_dec_dec <- rarr::wrangle_rel_dec_dec(db_rel_dec_dec)
 rel_risk_action <- rarr::wrangle_rel_risk_action(db_rel_risk_action)
 rel_risk_dec <- rarr::wrangle_rel_risk_dec(db_rel_risk_dec)
 rel_risk_risk <- rarr::wrangle_rel_risk_risk(db_rel_risk_risk)
-relations<-rarr::create_relations(rel_action_action, rel_dec_action, rel_dec_dec,
-                                 rel_risk_action,rel_risk_dec,rel_risk_risk)
+relations<-rarr::create_relations(rel_action_action, rel_dec_action,
+           rel_dec_dec,rel_risk_action,rel_risk_dec,rel_risk_risk)
 
 }

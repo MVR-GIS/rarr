@@ -23,9 +23,9 @@
 #'
 action_register_table <- function(action) {
   action_df <- action %>%
-    select(action_no_link, ACTION, start_date, end_date) %>%
-    mutate(start_date = as_date(start_date),
-           end_date = as_date(end_date))
+    select(.data$action_no_link, .data$ACTION, .data$start_date, .data$end_date) %>%
+    mutate(start_date = as_date(.data$start_date),
+           end_date = as_date(.data$end_date))
 
   # Create the unstyled kable
   action_register <- kbl(action_df,

@@ -28,11 +28,11 @@
 create_impact_outcome_table <- function(risk_df) {
   # pre-process the data
   impact_outcome <- risk_df %>%
-    select(IMPACT, OUTCOME) %>%
+    select(.data$IMPACT, .data$OUTCOME) %>%
     pivot_longer(cols = c("IMPACT", "OUTCOME"),
                  names_to = "type",
                  values_to = "comment") %>%
-    mutate(type = str_to_title(type))
+    mutate(type = str_to_title(.data$type))
 
   # Replace any NA values with ""
   impact_outcome[is.na(impact_outcome)] <- ""
