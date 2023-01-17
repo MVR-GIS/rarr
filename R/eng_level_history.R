@@ -30,6 +30,7 @@
 #' @importFrom dplyr mutate filter select
 #' @importFrom stringr str_to_title
 #' @importFrom lubridate as_date
+#' @importFrom rlang .data
 #' @importFrom kableExtra kbl kable_styling column_spec pack_rows
 #' @importFrom magrittr %>%
 #'
@@ -39,18 +40,18 @@ eng_level_history <-
   function(events_df, items, show_item_link = TRUE) {
     # Pre-process the data
     events_level <- events_df %>%
-      mutate(id_type = str_to_title(id_type)) %>%
-      mutate(level_date = as_date(level_date)) %>%
-      filter(fk_table_id %in% items)
+      dplyr::mutate(id_type = str_to_title(.data$id_type)) %>%
+      dplyr::mutate(level_date = as_date(.data$level_date)) %>%
+      dplyr::filter(.data$fk_table_id %in% items)
 
     if (show_item_link) {
       evnts <- select(
         events_level,
         .data$fk_table_id_link,
         .data$ENG_LEVEL,
-        level_date,
-        DESCRIPTION,
-        duration_days
+        .data$level_date,
+        .data$DESCRIPTION,
+        .data$duration_days
       )
       col_names <- c("Item",
                      "Level",
@@ -61,7 +62,7 @@ eng_level_history <-
     if (!show_item_link) {
       evnts <- select(events_level,
                       .data$ENG_LEVEL,
-                      level_date,
+                      .data$level_date,
                       .data$DESCRIPTION,
                       .data$duration_days)
       col_names <- c("Level", "Date",

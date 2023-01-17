@@ -7,7 +7,7 @@
 wrangle_risk_time(risk)
 }
 \arguments{
-\item{db_risk}{data frame; A standard risk table.}
+\item{risk}{data frame; A standard risk table.}
 }
 \value{
 A formatted risk_time data frame suitable for use by the

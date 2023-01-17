@@ -4,7 +4,7 @@
 #' timeline function
 #'
 #' @export
-#' @param db_risk   data frame; A standard risk table.
+#' @param risk   data frame; A standard risk table.
 #'
 #' @return A formatted risk_time data frame suitable for use by the
 #' timeline function.

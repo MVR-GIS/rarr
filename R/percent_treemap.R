@@ -23,8 +23,8 @@ percent_treemap <- function(df, column, title) {
 
   # Generate count of records for the specified column
   count_df <- count(df, !!col) %>%
-    mutate(percent = (n / sum(n)) * 100) %>%
-    mutate(label = paste0(!!col, " (",
+    dplyr::mutate(percent = (n / sum(n)) * 100) %>%
+    dplyr::mutate(label = paste0(!!col, " (",
                           round(percent, 1), "%)"))
   p1 <- ggplot(count_df,
                aes(area = n, fill = label, label = label)) +

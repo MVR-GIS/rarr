@@ -50,6 +50,7 @@
 #' @importFrom dplyr left_join arrange relocate select mutate group_by summarise
 #' bind_rows n desc rename
 #' @importFrom utils stack
+#' @importFrom rlang .data
 #' @importFrom magrittr %>%
 #'
 network_analysis <- function(relate_igraph, items) {
@@ -96,22 +97,22 @@ network_analysis <- function(relate_igraph, items) {
   adj_items <- bind_rows(adj_list)
 
   adj_count <- adj_items %>%
-    group_by(item_id) %>%
+    group_by(.data$item_id) %>%
     summarise(adj_count = n())
 
   # Calculate item centrality - degree
   item_degree <- stack(igraph::degree(relate_igraph))
   item_degree <- item_degree %>%
-    mutate(item_id = as.character(ind)) %>%
-    rename(degree = values) %>%
-    relocate(item_id, .before = degree) %>%
-    select(c(!ind))
+    dplyr::mutate(item_id = as.character(ind)) %>%
+    rename(degree = .data$values) %>%
+    relocate(.data$item_id, .before = degree) %>%
+    select(c(!.data$ind))
 
   # Join blocks to items to add key attributes
   related_blocks <- blocks %>%
     left_join(item_degree, by = c("item_id" = "item_id")) %>%
     left_join(adj_count, by = c("item_id" = "item_id")) %>%
     left_join(items, by = c("item_id" = "item_id")) %>%
-    arrange(block_no, desc(degree))
+    arrange(.data$block_no, desc(degree))
   return(related_blocks)
 }

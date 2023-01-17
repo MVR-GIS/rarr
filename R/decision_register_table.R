@@ -25,7 +25,7 @@
 decision_register_table <- function(decision) {
   dec_df <- decision %>%
     select(.data$decision_no_link, .data$DECISION, .data$APPROVAL_STATUS, .data$decision_date) %>%
-    mutate(decision_date = as_date(decision_date))
+    mutate(decision_date = as_date(.data$decision_date))
 
   # Create the unstyled kable
   decision_register <- kbl(dec_df,
