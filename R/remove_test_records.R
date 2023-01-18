@@ -19,7 +19,7 @@
 #'
 #' @importFrom stringr str_to_lower
 #' @importFrom dplyr mutate filter select
-#' @importFrom rlang sym .data :=
+#' @importFrom rlang sym .data := !!
 #' @importFrom magrittr %>%
 #'
 remove_test_records <- function(df, id_field) {
