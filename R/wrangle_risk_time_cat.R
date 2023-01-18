@@ -28,11 +28,11 @@ wrangle_risk_time_riskcat <-function(risk) {
   if(!is.data.frame(risk)) {
     stop("db_risk must be a data frame")}
   risk_time_riskcategory<-risk %>%
-    select(risk_cat_code, RISKCATEGORY) %>%
-    mutate(id = as.numeric(factor(risk_cat_code))) %>%
-    rename(content = risk_cat_code) %>%
-    rename(title = RISKCATEGORY) %>%
-    relocate(id, .before = content) %>%
-    distinct(id, content, .keep_all = TRUE)
+    select(.data$risk_cat_code, .data$RISKCATEGORY) %>%
+    mutate(id = as.numeric(factor(.data$risk_cat_code))) %>%
+    rename(content = .data$risk_cat_code) %>%
+    rename(title = .data$RISKCATEGORY) %>%
+    relocate(.data$id, .before = .data$content) %>%
+    distinct(.data$id, .data$content, .keep_all = TRUE)
   return(risk_time_riskcategory)
 }

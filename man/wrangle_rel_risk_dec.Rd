@@ -8,6 +8,9 @@ wrangle_rel_risk_dec(db_rel_risk_dec, active = TRUE)
 }
 \arguments{
 \item{db_rel_risk_dec}{data frame; A standard `rel_risk_dec` data frame.}
+
+\item{active}{logical; Return only active records? TRUE returns active
+records, FALSE returns inactive records. Default = TRUE.}
 }
 \value{
 A formatted data frame suitable for use by the report functions.

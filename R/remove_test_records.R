@@ -28,7 +28,7 @@ remove_test_records <- function(df, id_field) {
   if(!(id_field %in% colnames(df))) {stop("id_field is not a field in df")}
 
   df <- df %>%
-    dplyr::mutate(id := str_to_lower(!!sym(id_field))) %>%
+    dplyr::mutate(id := stringr::str_to_lower(!!sym(id_field))) %>%
     mutate(id_test = str_extract(.data$id, "test")) %>%
     filter(!.data$id_test %in% "test") %>%
     select(!c(.data$id, .data$id_test))

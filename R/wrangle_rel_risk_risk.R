@@ -4,7 +4,9 @@
 #'   it for use by the the reporting functions in this package.
 #'
 #' @export
-#' @param db_rel_risk_dec   data frame; A standard `rel_risk_risk` data frame.
+#' @param db_rel_risk_risk   data frame; A standard `rel_risk_risk` data frame.
+#' @param active logical; Return only active records? TRUE returns active
+#'                 records, FALSE returns inactive records. Default = TRUE.
 #'
 #' @return A formatted data frame suitable for use by the report functions.
 #'
@@ -32,7 +34,7 @@ wrangle_rel_risk_risk<- function(db_rel_risk_risk, active = TRUE){
 
   # Filter for "Active" records
   risk <- risk %>%
-    filter(RISK_ACTIVE == "Yes" & REL_RISK_ACTIVE == "Yes")
+    filter(.data$RISK_ACTIVE == "Yes" & .data$REL_RISK_ACTIVE == "Yes")
 
   # Cleanup id numbers for sorting
   risk <- rarr::format_id(risk, "RISK_NO")
@@ -43,7 +45,7 @@ wrangle_rel_risk_risk<- function(db_rel_risk_risk, active = TRUE){
 
   # Reorder fields
   rel_risk_risk <- risk %>%
-    relocate(REL_RISK_ACTIVE, .after = related_risk_link)
+    relocate(.data$REL_RISK_ACTIVE, .after = .data$related_risk_link)
 
   return(rel_risk_risk)
 }

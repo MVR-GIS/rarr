@@ -5,7 +5,7 @@
 #'
 #' @param events  data frame; An events data frame
 #' @param items      character; A character vector of item identifiers
-#' @param show_link  logical; Show item link and group the table by item type.
+#' @param show_item_link  logical; Show item link and group the table by item type.
 #'
 #' @return A kable table styled for reporting.
 #' @export
@@ -19,12 +19,12 @@
 #' events <- wrangle_events(db_events)
 #' x <- "CA-003"
 #'
-#' events_item <- events %>%
+#' events <- events %>%
 #'   dplyr::filter(TABLE_NAME == "RISK_REGISTER") %>%
 #'   dplyr::filter(fk_table_id == x)
 #'
 #' #Example
-#' eng_level_table <- eng_level_history(events_item, events_item$fk_table_id,
+#' eng_level_table <- eng_level_history(events, events$fk_table_id,
 #' show_item_link = TRUE)
 #'
 #' @importFrom dplyr mutate filter select
@@ -37,9 +37,9 @@
 #'
 #'
 eng_level_history <-
-  function(events_df, items, show_item_link = TRUE) {
+  function(events, items, show_item_link = TRUE) {
     # Pre-process the data
-    events_level <- events_df %>%
+    events_level <- events %>%
       dplyr::mutate(id_type = str_to_title(.data$id_type)) %>%
       dplyr::mutate(level_date = as_date(.data$level_date)) %>%
       dplyr::filter(.data$fk_table_id %in% items)

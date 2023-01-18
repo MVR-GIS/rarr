@@ -25,18 +25,18 @@
 # Create a timevis "data" data frame of risks
 wrangle_risk_time<- function(risk){
   risk_time<- risk %>%
-  arrange(risk_no) %>%
-  select(OBJECTID, risk_no, start_date, end_date, risk_cat_code,
-         CONCERNS, FEATURE, TECHNICAL_POC, eng_level) %>%
-  rename(id = OBJECTID) %>%
-  rename(content = risk_no) %>%
-  relocate(id, .before = content) %>%
-  rename(start = start_date) %>%
-  rename(end = end_date) %>%
-  rename(title = CONCERNS) %>%
-  relocate(title, .after = content) %>%
-  mutate(group = as.numeric(factor(risk_cat_code))) %>%
-  relocate(group, .after = end)
+  arrange(.data$risk_no) %>%
+  select(.data$OBJECTID, .data$risk_no, .data$start_date, .data$end_date, .data$risk_cat_code,
+         .data$CONCERNS, .data$FEATURE, .data$TECHNICAL_POC, .data$eng_level) %>%
+  rename(id = .data$OBJECTID) %>%
+  rename(content = .data$risk_no) %>%
+  relocate(.data$id, .before = .data$content) %>%
+  rename(start = .data$start_date) %>%
+  rename(end = .data$end_date) %>%
+  rename(title = .data$CONCERNS) %>%
+  relocate(title, .after = .data$content) %>%
+  mutate(group = as.numeric(factor(.data$risk_cat_code))) %>%
+  relocate(.data$group, .after = end)
 return(risk_time)
 }
 

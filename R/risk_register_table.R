@@ -18,21 +18,23 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr select
 #' @importFrom kableExtra kbl kable_styling pack_rows column_spec
+#' @importFrom rlang .data
 #'
 #' @export
 #'
 risk_register_table <- function(risk) {
   # Select for the needed fields
   risk_df <- risk %>%
-    select(risk_no_link, CONCERNS, RISKCATEGORY, RISK_STRATEGY,
-           EFFICACY_RISK, efficacy_risk_color,
-           COST_RISK, cost_risk_color,
-           SCHEDULE_RISK, schedule_risk_color)
+    select(.data$risk_no_link, .data$CONCERNS, .data$RISKCATEGORY, .data$RISK_STRATEGY,
+           .data$EFFICACY_RISK, .data$efficacy_risk_color,
+           .data$COST_RISK, .data$cost_risk_color,
+           .data$SCHEDULE_RISK, .data$schedule_risk_color)
 
   # Create the unstyled kable
   risk_register <- kbl(select(risk_df,
-                              risk_no_link, CONCERNS, RISK_STRATEGY,
-                              EFFICACY_RISK, COST_RISK, SCHEDULE_RISK),
+                              .data$risk_no_link, .data$CONCERNS,
+                              .data$RISK_STRATEGY,.data$EFFICACY_RISK,
+                              .data$COST_RISK, .data$SCHEDULE_RISK),
                        col.names = c("Number", "Description", "Strategy",
                                      "Efficacy", "Cost", "Schedule")) %>%
     kable_styling(bootstrap_options = c("striped", "hover",

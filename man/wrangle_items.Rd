@@ -6,6 +6,13 @@
 \usage{
 wrangle_items(risk, action, decision)
 }
+\arguments{
+\item{risk}{data frame; A risk data frame}
+
+\item{action}{data frame; An action data frame}
+
+\item{decision}{data frame; A decision data frame}
+}
 \value{
 A data frame of all items (risks, actions,decisions)
 }

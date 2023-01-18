@@ -2,6 +2,10 @@
 #'
 #' @return A data frame of all items (risks, actions,decisions)
 #'
+#' @param risk  data frame; A risk data frame
+#' @param action      data frame; An action data frame
+#' @param decision  data frame; A decision data frame
+#'
 #' @export
 #'
 #' @examples
@@ -27,25 +31,25 @@ wrangle_items<-function(risk,action,decision){
     stop("decision must be a data frame")}
 
   risk_items <-risk %>%
-    select(risk_no, risk_no_link, CONCERNS, id_type,
-           FEATURE, DISCIPLINE) %>%
-    rename(item_id = risk_no,
-           item_link = risk_no_link,
-           description = CONCERNS)
+    select(.data$risk_no, .data$risk_no_link, .data$CONCERNS, .data$id_type,
+           .data$FEATURE, .data$DISCIPLINE) %>%
+    rename(item_id = .data$risk_no,
+           item_link = .data$risk_no_link,
+           description = .data$CONCERNS)
 
   action_items <- action %>%
-    select(action_no, action_no_link, ACTION, id_type,
-           FEATURE, DISCIPLINE) %>%
-    rename(item_id = action_no,
-           item_link = action_no_link,
-           description = ACTION)
+    select(.data$action_no, .data$action_no_link, .data$ACTION, .data$id_type,
+           .data$FEATURE, .data$DISCIPLINE) %>%
+    rename(item_id = .data$action_no,
+           item_link = .data$action_no_link,
+           description = .data$ACTION)
 
   decision_items <- decision %>%
-    select(decision_no, decision_no_link, DECISION, id_type,
-           FEATURE, DISCIPLINE) %>%
-    rename(item_id = decision_no,
-           item_link = decision_no_link,
-           description = DECISION)
+    select(.data$decision_no, .data$decision_no_link, .data$DECISION, .data$id_type,
+           .data$FEATURE, .data$DISCIPLINE) %>%
+    rename(item_id = .data$decision_no,
+           item_link = .data$decision_no_link,
+           description = .data$DECISION)
 
   items <- bind_rows(risk_items, action_items, decision_items)
 
