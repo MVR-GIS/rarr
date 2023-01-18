@@ -14,6 +14,7 @@
 #' @importFrom ggplot2 ggplot theme aes ggtitle scale_fill_brewer
 #' @importFrom treemapify geom_treemap geom_treemap_text
 #' @importFrom magrittr %>%
+#' @importFrom rlang .data
 #'
 #'
 #'
@@ -25,9 +26,9 @@ percent_treemap <- function(df, column, title) {
   count_df <- count(df, !!col) %>%
     dplyr::mutate(percent = (n / sum(n)) * 100) %>%
     dplyr::mutate(label = paste0(!!col, " (",
-                          round(percent, 1), "%)"))
+                          round(.data$percent, 1), "%)"))
   p1 <- ggplot(count_df,
-               aes(area = n, fill = label, label = label)) +
+               aes(area = n, fill = .data$label, label = .data$label)) +
     geom_treemap() +
     geom_treemap_text(reflow = TRUE, min.size = 5, grow = FALSE) +
     scale_fill_brewer(palette = "Dark2") +

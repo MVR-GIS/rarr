@@ -50,11 +50,12 @@
 #' @importFrom magrittr %>%
 #' @importFrom kableExtra kable_styling kbl pack_rows column_spec
 #' @importFrom dplyr select
+#' @importFrom rlang .data
 #'
 #'
 related_blocks_table <- function(related_blocks) {
   related_blocks_df <- related_blocks %>%
-    select(item_link, description, adj_count)
+    select(.data$item_link, .data$description, .data$adj_count)
 
   col_names <- c("Number", "Description", "Related Items")
 

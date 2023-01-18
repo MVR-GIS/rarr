@@ -22,31 +22,32 @@
 #' @importFrom magrittr %>%
 #' @importFrom graphics par pie title
 #' @importFrom stats end
+#' @importFrom rlang .data
 #'
 risk_pies <- function(risk_df) {
   efficacy_risk_count <- risk_df %>%
-    group_by(EFFICACY_RISK) %>%
-    summarize(count = n(), color = unique(efficacy_risk_color)) %>%
-    drop_na(EFFICACY_RISK) %>%
+    group_by(.data$EFFICACY_RISK) %>%
+    summarize(count = n(), color = unique(.data$efficacy_risk_color)) %>%
+    drop_na(.data$EFFICACY_RISK) %>%
     mutate(percent = round(count/sum(count)*100)) %>%
-    mutate(color = recode(color, green = "forestgreen")) %>%
-    arrange(factor(EFFICACY_RISK, levels = c("High", "Moderate", "Low")))
+    mutate(color = recode(.data$color, green = "forestgreen")) %>%
+    arrange(factor(.data$EFFICACY_RISK, levels = c("High", "Moderate", "Low")))
 
   cost_risk_count <- risk_df %>%
-    group_by(COST_RISK) %>%
-    summarize(count = n(), color = unique(cost_risk_color)) %>%
-    drop_na(COST_RISK) %>%
+    group_by(.data$COST_RISK) %>%
+    summarize(count = n(), color = unique(.data$cost_risk_color)) %>%
+    drop_na(.data$COST_RISK) %>%
     mutate(percent = round(count/sum(count)*100)) %>%
-    mutate(color = recode(color, green = "forestgreen")) %>%
-    arrange(factor(COST_RISK, levels = c("High", "Moderate", "Low")))
+    mutate(color = recode(.data$color, green = "forestgreen")) %>%
+    arrange(factor(.data$COST_RISK, levels = c("High", "Moderate", "Low")))
 
   schedule_risk_count <- risk_df %>%
-    group_by(SCHEDULE_RISK) %>%
-    summarize(count = n(), color = unique(schedule_risk_color)) %>%
-    drop_na(SCHEDULE_RISK) %>%
+    group_by(.data$SCHEDULE_RISK) %>%
+    summarize(count = n(), color = unique(.data$schedule_risk_color)) %>%
+    drop_na(.data$SCHEDULE_RISK) %>%
     mutate(percent = round(count/sum(count)*100)) %>%
-    mutate(color = recode(color, green = "forestgreen")) %>%
-    arrange(factor(SCHEDULE_RISK, levels = c("High", "Moderate", "Low")))
+    mutate(color = recode(.data$color, green = "forestgreen")) %>%
+    arrange(factor(.data$SCHEDULE_RISK, levels = c("High", "Moderate", "Low")))
 
   par(mfrow = c(1,3),
       mar = c(0, 0, 1, 0),

@@ -23,6 +23,7 @@
 #' @importFrom dplyr mutate across ends_with
 #' @importFrom lubridate dmy_hms
 #' @importFrom magrittr %>%
+#' @importFrom readr read_csv
 #'
 convert_date <- function(df) {
   # Check inputs

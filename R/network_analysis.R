@@ -103,7 +103,7 @@ network_analysis <- function(relate_igraph, items) {
   # Calculate item centrality - degree
   item_degree <- stack(igraph::degree(relate_igraph))
   item_degree <- item_degree %>%
-    dplyr::mutate(item_id = as.character(ind)) %>%
+    dplyr::mutate(item_id = as.character(.data$ind)) %>%
     rename(degree = .data$values) %>%
     relocate(.data$item_id, .before = degree) %>%
     select(c(!.data$ind))
