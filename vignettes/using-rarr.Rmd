@@ -1,10 +1,10 @@
 ---
-title: "Getting startedwith the `rarr` Package"
+title: "Getting started with the `rarr` Package"
 author: Michael Dougherty
 date: "2022-01-10" 
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{using-rarr}
+  %\VignetteIndexEntry{Getting started with the `rarr` Package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

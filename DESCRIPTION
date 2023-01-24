@@ -5,8 +5,11 @@ Version: 0.1.2
 Authors@R: c(
     person("Michael", "Dougherty", 
            email = "Michael.P.Dougherty@usace.army.mil", 
-           role = c("aut", "cre"))
-            )
+           role = c("aut")),
+    person("Barrie", "Chileen Martinez",
+           email = "barrie.chileen@gmail.com",
+           role = c("aut","cre"),
+           comment = c(ORCID = "0000-0002-6960-8167")))
 Description: This package contains functions for building a Risk Analysis 
     Report. 
 License: file LICENSE

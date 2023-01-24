@@ -31,7 +31,7 @@ grouped into three broad categories.
     by risk managers.
 -   Format Pages - These functions are used to programmatically create
     report links and headers.
--   Produce Figures - These functions are used
+-   Produce Figures - These functions are used to create figures needed for risk reporting.
 
 <img src="man/figures/HDQLO-03_h120.jpg" width=125 align="right" />
 
@@ -57,6 +57,10 @@ Check out the [NEWS](NEWS.md) for details on the latest updates.
     Geographer, Rock Island District, U.S. Army Corps of Engineers
     <a itemprop="sameAs" content="https://orcid.org/0000-0002-1465-5927" href="https://orcid.org/0000-0002-1465-5927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;">
     <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0002-1465-5927</a>
+-   [Barrie Chileen Martinez](mailto:Barrie.V.Chileen@usace.army.mil),
+    Geographer, Rock Island District, U.S. Army Corps of Engineers
+    <a itemprop="sameAs" content="https://orcid.org/0000-0002-6960-8167" href="https://orcid.org/0000-0002-6960-8167" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;">
+    <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0002-6960-8167</a>
 
 ------------------------------------------------------------------------
 
