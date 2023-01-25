@@ -3,8 +3,7 @@
 ## Major Changes
 
 -   All functions from [BRIP-RAR](https://github.com/MVR-GIS/BRIP-RAR) have tests created and have been migrated
--   rarr packages now fully functioning
-
+-   rarr packages now fully functioning hello
 
 ## Bug Fixes
 

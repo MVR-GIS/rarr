@@ -1,0 +1,19 @@
+---
+title: "Building timelines for Risk Reports"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Building timelines for Risk Reports}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rarr)
+```

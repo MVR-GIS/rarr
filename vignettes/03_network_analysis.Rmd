@@ -1,0 +1,19 @@
+---
+title: "Network Analysis in Risk Reports"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Network Analysis in Risk Reports}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rarr)
+```

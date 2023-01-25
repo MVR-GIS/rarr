@@ -1,0 +1,50 @@
+url: ~
+template:
+  bootstrap: 5
+  bootswatch: litera
+navbar:
+  components:
+    news:
+      text: News
+      href: news/index.html
+  structure:
+    left: [intro, reference, articles, news]
+    articles:
+
+reference:
+- title: Wrangle
+  desc:  Wrangles risk data for use in tables and figures
+- contents:
+  - create_items
+  - create_relations
+  - starts_with("wrangle_")
+- title: Build tables
+  desc: Creates risk tables from wrangled risk data
+- contents:
+  - eng_level_history
+  - ends_with("_table")
+- title: Build figures
+  desc: Creates figures from wrangled risk data
+- contents:
+  - network_analysis
+  - percent_treemap
+  - risk_pies
+  - timeline
+- title: Test data
+  desc: Prepackaged test data to showcase risk data schema
+- contents:
+  - starts_with("db_")
+- title: Misc Utilities
+  desc: Functions to assist in data presentation and cleaning prior to wrangling and reporting
+- contents:
+  - atx_header
+  - convert_date
+  - format_id
+  - id_link
+  - pandoc_header
+  - remove_inactive_records
+  - remove_test_records
+
+
+
+

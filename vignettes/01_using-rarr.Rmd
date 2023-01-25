@@ -1,7 +1,7 @@
 ---
 title: "Getting started with the `rarr` Package"
-author: Michael Dougherty
-date: "2022-01-10" 
+author: Barrie Chileen Martinez
+date: "2023-01-24" 
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Getting started with the `rarr` Package}
@@ -17,18 +17,38 @@ knitr::opts_chunk$set(
 ```
 
 ## Install
+
 To install the `rarr` package, install from GitHub using the `remotes` package:
+
 ```{r install, eval=FALSE}
 remotes::install_github(repo = "MVR-GIS/rarr@*release")
 ```
 
+## Add data
+
 Load the package:
+
 ```{r setup}
 library(rarr)
 ```
 
 
-```{r}
+Load data from data source:
+
+```{r eval=FALSE}  
+
+  
+  
+readr::read_csv("your filesystem data locations")
 
 ```
 
+## Wrangle Data
+
+Once the data has been loaded, proceed to the cleaning and wrangle functions.
+
+```{r}
+risk_active <- remove_inactive_records(db_risk)
+risk <- wrangle_risk(db_risk)
+
+```

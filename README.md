@@ -47,7 +47,7 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 
 ## Latest Updates
 
-Check out the [NEWS](NEWS.md) for details on the latest updates.
+Check out the [News](news/index.html) for details on the latest updates.
 
 ------------------------------------------------------------------------
 
