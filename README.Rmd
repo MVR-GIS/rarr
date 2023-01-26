@@ -30,7 +30,7 @@ This package contains a set of functions that are used to help produce a Risk An
 <img src="man/figures/HDQLO-03_h120.jpg" width=125 align="right" />
 
 ## Funding
-Funding for development and maintenance of FluvialGeomorph has been provided by the following US Army Corps of Engineers (USACE) programs:
+Funding for development and maintenance of `rarr`` has been provided by the following US Army Corps of Engineers (USACE) programs:
 
 * [Brandon Road Interbasin Project (BRIP)](https://www.mvr.usace.army.mil/Missions/Environmental-Stewardship/BR-Interbasin-Project/)
 

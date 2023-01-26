@@ -37,7 +37,7 @@ grouped into three broad categories.
 
 ## Funding
 
-Funding for development and maintenance of FluvialGeomorph has been
+Funding for development and maintenance of `rarr` has been
 provided by the following US Army Corps of Engineers (USACE) programs:
 
 -   [Brandon Road Interbasin Project
