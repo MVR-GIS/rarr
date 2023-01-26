@@ -71,6 +71,11 @@ package:
 
     remotes::install_github(repo = "MVR-GIS/rarr")
 
+## URL
+
+For more information on `rarr` and its usage, access the package website here:
+https://mvr-gis.github.io/rarr/
+
 ## Bug Reports
 
 If you find any bugs using `rarr`, please open an
