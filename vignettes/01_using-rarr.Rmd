@@ -16,6 +16,13 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Introduction 
+  Risk assessment and consideration is a common component to the project management cycle. The purpose of this package is to assist in the wrangling and presentation of the risk assessment 
+process in project management cycle. The products created by the functions in this package can
+be integrated into an R `bookdown` report to create a static webpage to communicate risk during
+a given project. 
+
+
 ## Install
 
 To install the `rarr` package, install from GitHub using the `remotes` package:
@@ -37,9 +44,7 @@ Load data from data source:
 
 ```{r eval=FALSE}  
 
-  
-  
-readr::read_csv("your filesystem data locations")
+risk<-rarr::db_risk
 
 ```
 
