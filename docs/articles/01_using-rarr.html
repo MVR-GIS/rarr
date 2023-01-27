@@ -86,6 +86,16 @@ Martinez</h4>
     
     
 <div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p>Risk assessment is a common component to the project management
+cycle. The purpose of this package is to assist in the wrangling and
+presentation of risk assessment data generated throughout the project
+management cycle. The products created by the functions in this package
+can be integrated into an R [<code>bookdown</code> package] report to
+create a static webpage to communicate risk during a given project.</p>
+</div>
+<div class="section level2">
 <h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h2>
 <p>To install the <code>rarr</code> package, install from GitHub using
@@ -102,18 +112,24 @@ the <code>remotes</code> package:</p>
 <p>Load data from data source:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span>  </span>
-<span>  </span>
-<span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"your filesystem data locations"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">risk</span><span class="op">&lt;-</span><span class="fu">rarr</span><span class="fu">::</span><span class="va"><a href="../reference/db_risk.html">db_risk</a></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="wrangle-data">Wrangle Data<a class="anchor" aria-label="anchor" href="#wrangle-data"></a>
 </h2>
 <p>Once the data has been loaded, proceed to the cleaning and wrangle
-functions.</p>
+functions. The “risk” table will be used as an example.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">risk_active</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/remove_inactive_records.html">remove_inactive_records</a></span><span class="op">(</span><span class="va">db_risk</span><span class="op">)</span></span>
 <span><span class="va">risk</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/wrangle_risk.html">wrangle_risk</a></span><span class="op">(</span><span class="va">db_risk</span><span class="op">)</span></span></code></pre></div>
+<p>Related risk tables must also be wrangled to be able to create the
+timeline and network analysis figures.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">rel_action_action</span><span class="op">&lt;-</span><span class="fu">rarr</span><span class="fu">::</span><span class="fu"><a href="../reference/wrangle_rel_action_action.html">wrangle_rel_action_action</a></span><span class="op">(</span><span class="va">db_rel_action_action</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">rel_dec_action</span> <span class="op">&lt;-</span> <span class="fu">rarr</span><span class="fu">::</span><span class="fu"><a href="../reference/wrangle_rel_dec_action.html">wrangle_rel_dec_action</a></span><span class="op">(</span><span class="va">db_rel_dec_action</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">rel_dec_dec</span><span class="op">&lt;-</span> <span class="fu">rarr</span><span class="fu">::</span><span class="fu"><a href="../reference/wrangle_rel_dec_dec.html">wrangle_rel_dec_dec</a></span><span class="op">(</span><span class="va">db_rel_dec_dec</span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
