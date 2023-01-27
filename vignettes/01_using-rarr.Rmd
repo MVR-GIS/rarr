@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-Risk assessment is a common component to the project management cycle. The purpose of this package is to assist in the wrangling and presentation of risk assessment data generated throughout the project management cycle. The products created by the functions in this package can be integrated into an R [`bookdown` package] report to create a static webpage to communicate risk during a given project.
+Risk assessment is a common component to the project management cycle. The purpose of this package is to assist in the wrangling and presentation of risk assessment data generated throughout the project management cycle. The products created by the functions in this package can be integrated into an R [`bookdown` package] report to create a static webpage to communicate risk during a given project. sos
 
 ## Install
 
