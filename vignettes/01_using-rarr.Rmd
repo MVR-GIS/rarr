@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-Risk assessment is a common component to the project management cycle. The purpose of this package is to assist in the wrangling and presentation of risk assessment data generated throughout the project management cycle. The products created by the functions in this package can be integrated into an R [`bookdown` package] report to create a static webpage to communicate risk during a given project. sos
+Risk assessment is a common component to the project management cycle. The purpose of this package is to assist in the wrangling and presentation of risk assessment data generated throughout the project management cycle. The products created by the functions in this package can be integrated into an R [`bookdown` package] report to create a static webpage to communicate risk during a given project.
 
 ## Install
 
@@ -46,10 +46,21 @@ risk<-rarr::db_risk
 
 ## Wrangle Data
 
-Once the data has been loaded, proceed to the cleaning and wrangle functions. The "risk" table will be used as an example.
+Once the data has been loaded, proceed to the cleaning and wrangle functions. The "risk" table will be used as an example. 
 
 ```{r}
 risk_active <- remove_inactive_records(db_risk)
 risk <- wrangle_risk(db_risk)
+
+```
+
+Related risk tables must also be wrangled to be able to create the timeline and network analysis figures.
+
+```{r}
+rel_action_action<-rarr::wrangle_rel_action_action(db_rel_action_action)
+
+rel_dec_action <- rarr::wrangle_rel_dec_action(db_rel_dec_action)
+
+rel_dec_dec<- rarr::wrangle_rel_dec_dec(db_rel_dec_dec)
 
 ```
