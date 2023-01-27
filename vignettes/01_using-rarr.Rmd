@@ -46,7 +46,7 @@ risk<-rarr::db_risk
 
 ## Wrangle Data
 
-Once the data has been loaded, proceed to the cleaning and wrangle functions. The "risk" table will be used as an example.
+Once the data has been loaded, proceed to the cleaning and wrangle functions. The "risk" table will be used as an example. Test
 
 ```{r}
 risk_active <- remove_inactive_records(db_risk)
