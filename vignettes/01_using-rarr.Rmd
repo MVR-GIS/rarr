@@ -1,6 +1,6 @@
 ---
 title: "Getting started with the `rarr` Package"
-author: Barrie Chileen Martinez
+author: US Army Corps of Engineers
 date: "2023-01-24" 
 output: rmarkdown::html_vignette
 vignette: >
@@ -8,6 +8,12 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r library, include=FALSE}
+library(rarr)
+library(magrittr)
+library(dplyr)
+```
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -32,21 +38,19 @@ remotes::install_github(repo = "MVR-GIS/rarr@*release")
 
 Load the package:
 
-```{r setup}
+```{r setup, echo= TRUE}
 library(rarr)
 ```
 
-Load data from data source:
+Load data from data source (here we reference internal test data):
 
 ```{r eval=FALSE}
-
 risk<-rarr::db_risk
-
 ```
 
 ## Wrangle Data
 
-Once the data has been loaded, proceed to the cleaning and wrangle functions. The "risk" table will be used as an example. 
+Once the data has been loaded, proceed to the cleaning and wrangle functions. The "risk" table will be used as an example.
 
 ```{r}
 risk_active <- remove_inactive_records(db_risk)
@@ -63,4 +67,28 @@ rel_dec_action <- rarr::wrangle_rel_dec_action(db_rel_dec_action)
 
 rel_dec_dec<- rarr::wrangle_rel_dec_dec(db_rel_dec_dec)
 
+```
+
+## Presenting Data
+
+Once the data has been wrangled, it can then be passed into a variety of filters to create tables and figures as seen in [BRIP RARR](https://main.d2tmzs5n6kdoxm.amplifyapp.com/index.html)
+
+Some of these processes involve the [table functions](https://mvr-gis.github.io/rarr/reference/index.html#build-tables) from the 'rarr' package and the [figure building functions](https://mvr-gis.github.io/rarr/reference/index.html#build-figures)
+
+### Wrangled output undergoes a filter
+
+```{r high-risk, echo=TRUE, warning=FALSE, message=FALSE}
+risk_high <- risk %>%
+   filter(COST_RISK == "HIGH" | SCHEDULE_RISK == "High" | EFFICACY_RISK == "High")
+```
+
+### Example of creating charts with wrangled risk data
+
+```{r echo=TRUE, warning=FALSE, message=FALSE, fig.width=7, fig.height=2, out.width='100%'}
+rarr::risk_pies(risk_high)
+```
+
+### Example of using a table function to present wrangled risk data
+```{r high-risk-register-table, echo=TRUE, warning=FALSE, message=FALSE}
+rarr::risk_register_table(risk_high)
 ```

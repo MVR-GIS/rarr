@@ -70,12 +70,12 @@
 
 
 
-
+<script src="01_using-rarr_files/kePrint-0.0.1/kePrint.js"></script><link href="01_using-rarr_files/lightable-0.0.1/lightable.css" rel="stylesheet">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Getting started with the `rarr` Package</h1>
-                        <h4 data-toc-skip class="author">Barrie Chileen
-Martinez</h4>
+                        <h4 data-toc-skip class="author">US Army Corps
+of Engineers</h4>
             
             <h4 data-toc-skip class="date">2023-01-24</h4>
       
@@ -109,10 +109,10 @@ the <code>remotes</code> package:</p>
 <p>Load the package:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/MVR-GIS/rarr" class="external-link">rarr</a></span><span class="op">)</span></span></code></pre></div>
-<p>Load data from data source:</p>
+<p>Load data from data source (here we reference internal test
+data):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="va">risk</span><span class="op">&lt;-</span><span class="fu">rarr</span><span class="fu">::</span><span class="va"><a href="../reference/db_risk.html">db_risk</a></span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">risk</span><span class="op">&lt;-</span><span class="fu">rarr</span><span class="fu">::</span><span class="va"><a href="../reference/db_risk.html">db_risk</a></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="wrangle-data">Wrangle Data<a class="anchor" aria-label="anchor" href="#wrangle-data"></a>
@@ -130,6 +130,383 @@ timeline and network analysis figures.</p>
 <span><span class="va">rel_dec_action</span> <span class="op">&lt;-</span> <span class="fu">rarr</span><span class="fu">::</span><span class="fu"><a href="../reference/wrangle_rel_dec_action.html">wrangle_rel_dec_action</a></span><span class="op">(</span><span class="va">db_rel_dec_action</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">rel_dec_dec</span><span class="op">&lt;-</span> <span class="fu">rarr</span><span class="fu">::</span><span class="fu"><a href="../reference/wrangle_rel_dec_dec.html">wrangle_rel_dec_dec</a></span><span class="op">(</span><span class="va">db_rel_dec_dec</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="presenting-data">Presenting Data<a class="anchor" aria-label="anchor" href="#presenting-data"></a>
+</h2>
+<p>Once the data has been wrangled, it can then be passed into a variety
+of filters to create tables and figures as seen in <a href="https://main.d2tmzs5n6kdoxm.amplifyapp.com/index.html" class="external-link">BRIP
+RARR</a></p>
+<p>Some of these processes involve the <a href="https://mvr-gis.github.io/rarr/reference/index.html#build-tables">table
+functions</a> from the ‘rarr’ package and the <a href="https://mvr-gis.github.io/rarr/reference/index.html#build-figures">figure
+building functions</a></p>
+<div class="section level3">
+<h3 id="wrangled-output-undergoes-a-filter">Wrangled output undergoes a filter<a class="anchor" aria-label="anchor" href="#wrangled-output-undergoes-a-filter"></a>
+</h3>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">risk_high</span> <span class="op">&lt;-</span> <span class="va">risk</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">COST_RISK</span> <span class="op">==</span> <span class="st">"HIGH"</span> <span class="op">|</span> <span class="va">SCHEDULE_RISK</span> <span class="op">==</span> <span class="st">"High"</span> <span class="op">|</span> <span class="va">EFFICACY_RISK</span> <span class="op">==</span> <span class="st">"High"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="example-of-creating-charts-with-wrangled-risk-data">Example of creating charts with wrangled risk data<a class="anchor" aria-label="anchor" href="#example-of-creating-charts-with-wrangled-risk-data"></a>
+</h3>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">rarr</span><span class="fu">::</span><span class="fu"><a href="../reference/risk_pies.html">risk_pies</a></span><span class="op">(</span><span class="va">risk_high</span><span class="op">)</span></span></code></pre></div>
+<p><img src="01_using-rarr_files/figure-html/unnamed-chunk-5-1.png" width="100%"></p>
+</div>
+<div class="section level3">
+<h3 id="example-of-using-a-table-function-to-present-wrangled-risk-data">Example of using a table function to present wrangled risk data<a class="anchor" aria-label="anchor" href="#example-of-using-a-table-function-to-present-wrangled-risk-data"></a>
+</h3>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">rarr</span><span class="fu">::</span><span class="fu"><a href="../reference/risk_register_table.html">risk_register_table</a></span><span class="op">(</span><span class="va">risk_high</span><span class="op">)</span></span></code></pre></div>
+<table class="table table table-striped table-hover table-condensed table-responsive" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+Number
+</th>
+<th style="text-align:left;">
+Description
+</th>
+<th style="text-align:left;">
+Strategy
+</th>
+<th style="text-align:left;">
+Efficacy
+</th>
+<th style="text-align:left;">
+Cost
+</th>
+<th style="text-align:left;">
+Schedule
+</th>
+</tr></thead>
+<tbody>
+<tr grouplength="1">
+<td colspan="6" style="background-color: #dad8d8; color: #000000;">
+<strong>Contract Acquisition Risks</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-ca-003">CA-003</a>
+</td>
+<td style="text-align:left;">
+Larger contracts may be broken into multiple contracts.
+</td>
+<td style="text-align:left;">
+Accept
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="6" style="background-color: #dad8d8; color: #000000;">
+<strong>Environment</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-en-001">EN-001</a>
+</td>
+<td style="text-align:left;">
+The assumption made during the feasibility study was the site could be
+used for construction with some remediation. Environmental site
+investigation may result in unusable site or high cost. This risk
+pertains to required real estate footprint on the RDB.
+</td>
+<td style="text-align:left;">
+Accept &amp; Mitigate
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="6" style="background-color: #dad8d8; color: #000000;">
+<strong>Non-Regulatory</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-l-001">L-001</a>
+</td>
+<td style="text-align:left;">
+If required land rights are not provided by a willing seller,
+condemnation and/or quit take authority could take longer to accomplish
+than the scope and schedule of this project may allow.
+</td>
+<td style="text-align:left;">
+Accept
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-l-002">L-002</a>
+</td>
+<td style="text-align:left;">
+Costs for project land acquisition could exceed what the state of
+Illinois is willing to pay for the property.
+</td>
+<td style="text-align:left;">
+Accept
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-l-003">L-003</a>
+</td>
+<td style="text-align:left;">
+Costs for project land rights hazardous waste remediation could exceed
+what the state of Illinois is willing to spend on remediation and/or
+could take longer than scope of project to complete.
+</td>
+<td style="text-align:left;">
+Accept &amp; Mitigate
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="6" style="background-color: #dad8d8; color: #000000;">
+<strong>Project &amp; Program Mgmt</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-pmm-003">PMM-003</a>
+</td>
+<td style="text-align:left;">
+Eventual operation, maintenance, repair, rehabilitation, and replacement
+responsibilities should be based on the expected project life of
+50-years rather than a commitment in perpetuity. (PPA issue)
+</td>
+<td style="text-align:left;">
+Accept &amp; Mitigate
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-ppm-001">PPM-001</a>
+</td>
+<td style="text-align:left;">
+Concern that the PPA cannot be negotiated and signed on time.
+</td>
+<td style="text-align:left;">
+Accept
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-ppm-002">PPM-002</a>
+</td>
+<td style="text-align:left;">
+Lack of efficient funding in PED could delay design.
+</td>
+<td style="text-align:left;">
+Accept &amp; Transfer
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="6" style="background-color: #dad8d8; color: #000000;">
+<strong>Real Estate</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-re-001">RE-001</a>
+</td>
+<td style="text-align:left;">
+Right descending bank may not be available for use.
+</td>
+<td style="text-align:left;">
+Accept &amp; Mitigate
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="6" style="background-color: #dad8d8; color: #000000;">
+<strong>Technical Risks</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-tr-006g">TR-006g</a>
+</td>
+<td style="text-align:left;">
+Navigation delays during construction
+</td>
+<td style="text-align:left;">
+Accept &amp; Mitigate
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-tr-008">TR-008</a>
+</td>
+<td style="text-align:left;">
+There may be problems with achieving the desired effectiveness of the
+entire ANS control system.
+</td>
+<td style="text-align:left;">
+Accept &amp; Mitigate
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: orange !important;">
+Moderate
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-tr-009d">TR-009d</a>
+</td>
+<td style="text-align:left;">
+Single source for speakers, sole proprietor
+</td>
+<td style="text-align:left;">
+Accept &amp; Mitigate
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-tr-009f">TR-009f</a>
+</td>
+<td style="text-align:left;">
+Operability, maintainability, sustainability. This risk is due to
+lifecycle costs with the speakers over time.
+</td>
+<td style="text-align:left;">
+Accept
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="#risk-item-tr-021">TR-021</a>
+</td>
+<td style="text-align:left;">
+Velocity can pull floaters or small fish through barriers when barge
+traffic is active.
+</td>
+<td style="text-align:left;">
+Accept &amp; Transfer
+</td>
+<td style="text-align:left;color: black !important;background-color: red !important;">
+High
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+<td style="text-align:left;color: black !important;background-color: green !important;">
+Low
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

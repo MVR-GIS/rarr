@@ -13,7 +13,7 @@ An `R` Package for producing Risk Analysis Reports
 and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.1.2-orange.svg?style=flat-square)](commits/master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2022--01--21-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2023--01--31-yellowgreen.svg)](/commits/master)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 
 ## Description
