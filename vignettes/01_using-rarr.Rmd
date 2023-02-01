@@ -73,13 +73,13 @@ rel_dec_dec<- rarr::wrangle_rel_dec_dec(db_rel_dec_dec)
 
 Once the data has been wrangled, it can then be passed into a variety of filters to create tables and figures as seen in [BRIP RARR](https://main.d2tmzs5n6kdoxm.amplifyapp.com/index.html)
 
-Some of these processes involve the [table functions](https://mvr-gis.github.io/rarr/reference/index.html#build-tables) from the 'rarr' package and the [figure building functions](https://mvr-gis.github.io/rarr/reference/index.html#build-figures)
+Some of these processes involve the [table functions](https://mvr-gis.github.io/rarr/reference/index.html#build-tables) from the `rarr` package and the [figure building functions](https://mvr-gis.github.io/rarr/reference/index.html#build-figures)
 
 ### Wrangled output undergoes a filter
 
 ```{r high-risk, echo=TRUE, warning=FALSE, message=FALSE}
 risk_high <- risk %>%
-   filter(COST_RISK == "HIGH" | SCHEDULE_RISK == "High" | EFFICACY_RISK == "High")
+   dplyr::filter(COST_RISK == "HIGH" | SCHEDULE_RISK == "High" | EFFICACY_RISK == "High")
 ```
 
 ### Example of creating charts with wrangled risk data
