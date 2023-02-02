@@ -14,10 +14,38 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 ```{r library, include=FALSE}
 library(rarr)
 library(magrittr)
 library(dplyr)
 ```
 
+The timeline function is can be used to display filtered risk tables and the project timeline. This function requires two functions to create the html timeline widget.
+
+# Create a timevis "data" data frame of risks
+
+In this step the wrangled risk dataframe is wrangled into a risk time data frame.
+
+```{r}
+risk<-rarr::db_risk
+risk<-rarr::wrangle_risk(risk)
+risk_time <- rarr::wrangle_risk_time(risk)
+```
+
+# Create a timevis "group" data frame in order to group risks by unique Risk Categories
+
+```{r}
+risk_time_riskcategory <- rarr::wrangle_risk_time_riskcat(risk)
+```
+
+# Create the project timeline
+
+The final step is to create the p[roject risk timeline. To accomplish this, you input the risk_time and risk_time_riskcategory dataframes into the timeline function and specify the outputs dimensions.
+
+```{r}
+rarr::timeline(risk_df = risk_time, 
+         groups_df = risk_time_riskcategory,
+         height = "700px",
+         start = "2021-01-01",
+         end = "2025-01-01")
+```
