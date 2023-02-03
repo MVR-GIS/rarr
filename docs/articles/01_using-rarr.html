@@ -138,14 +138,14 @@ timeline and network analysis figures.</p>
 of filters to create tables and figures as seen in <a href="https://main.d2tmzs5n6kdoxm.amplifyapp.com/index.html" class="external-link">BRIP
 RARR</a></p>
 <p>Some of these processes involve the <a href="https://mvr-gis.github.io/rarr/reference/index.html#build-tables">table
-functions</a> from the ‘rarr’ package and the <a href="https://mvr-gis.github.io/rarr/reference/index.html#build-figures">figure
+functions</a> from the <code>rarr</code> package and the <a href="https://mvr-gis.github.io/rarr/reference/index.html#build-figures">figure
 building functions</a></p>
 <div class="section level3">
 <h3 id="wrangled-output-undergoes-a-filter">Wrangled output undergoes a filter<a class="anchor" aria-label="anchor" href="#wrangled-output-undergoes-a-filter"></a>
 </h3>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">risk_high</span> <span class="op">&lt;-</span> <span class="va">risk</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">COST_RISK</span> <span class="op">==</span> <span class="st">"HIGH"</span> <span class="op">|</span> <span class="va">SCHEDULE_RISK</span> <span class="op">==</span> <span class="st">"High"</span> <span class="op">|</span> <span class="va">EFFICACY_RISK</span> <span class="op">==</span> <span class="st">"High"</span><span class="op">)</span></span></code></pre></div>
+<span>   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">COST_RISK</span> <span class="op">==</span> <span class="st">"HIGH"</span> <span class="op">|</span> <span class="va">SCHEDULE_RISK</span> <span class="op">==</span> <span class="st">"High"</span> <span class="op">|</span> <span class="va">EFFICACY_RISK</span> <span class="op">==</span> <span class="st">"High"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="example-of-creating-charts-with-wrangled-risk-data">Example of creating charts with wrangled risk data<a class="anchor" aria-label="anchor" href="#example-of-creating-charts-with-wrangled-risk-data"></a>
