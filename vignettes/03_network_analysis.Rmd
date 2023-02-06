@@ -75,11 +75,11 @@ relate_igraph <- igraph::graph_from_data_frame(d = relations,
 
 ## Plot network analysis of related items
 
-```{r, echo=TRUE, out.width="100%", dpi = 200}
+```{r, echo=TRUE, out.width="90%", dpi = 300}
 edgebundleR::edgebundle(relate_igraph, 
                         tension = 0.8, 
-                        fontsize = 12,
-                        padding = 60)
+                        fontsize = 13,
+                        padding = 70)
 
 ```
 
