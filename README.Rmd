@@ -8,7 +8,7 @@ output: md_document
 <img src="man/figures/kitten-roar4-2.jpg" width=250 align="right" />
 
 # rarr
-An `R` Package for producing Risk Analysis Reports
+Risk Analysis Reporting in R: A solution for producing Risk Analysis Reports in `R`
 
 ## Package Status
 [![Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle)
