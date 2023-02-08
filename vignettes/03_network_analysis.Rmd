@@ -7,19 +7,16 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
 
 ```{r library, include=FALSE}
 library(rarr)
 library(magrittr)
 library(dplyr)
 library(igraph)
+```
 
+
+```{r library, include=TRUE}
 #Gather Risk Data
 db_risk <- rarr::db_risk
 db_action <- rarr::db_action

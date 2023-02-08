@@ -40,7 +40,7 @@ risk_time_riskcategory <- rarr::wrangle_risk_time_riskcat(risk)
 
 ## Create the project timeline
 
-The final step is to create the p[roject risk timeline. To accomplish this, you input the risk_time and risk_time_riskcategory dataframes into the timeline function and specify the outputs dimensions.
+The final step is to create the project risk timeline. To accomplish this, you input the risk_time and risk_time_riskcategory dataframes into the timeline function and specify the outputs dimensions.
 
 ```{r echo=TRUE, warning=FALSE, message=FALSE}
 rarr::timeline(risk_df = risk_time, 
