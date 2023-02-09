@@ -7,7 +7,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
 ```{r library, include=FALSE}
 library(rarr)
 library(magrittr)
@@ -15,54 +14,55 @@ library(dplyr)
 library(igraph)
 ```
 
+# Introduction
+The network analysis function creates a related items web that can be beneficial for capturing related risk items. This figure is created by combining an items data frame with a relations dataframe. These items are then passed into an igraph object which is then rendered into the dendrogram html widget.
 
-```{r library, include=TRUE}
-#Gather Risk Data
+## Gather Risk Data
+```{r gather risk}
 db_risk <- rarr::db_risk
 db_action <- rarr::db_action
 db_decision <- rarr::db_decision
+```
 
-#Wrangle Risk Data
+## Wrangle Risk Data
+```{r wrangle risk}
 risk <- rarr::wrangle_risk(db_risk)
 action <- rarr::wrangle_action(db_action)
 decision <- rarr::wrangle_decision(db_decision)
+```
 
-#Gather related items
+## Gather related items
+```{r gather related}
 db_rel_action_action <- rarr::db_rel_action_action
 db_rel_dec_dec<- rarr::db_rel_dec_dec
 db_rel_dec_action<- rarr::db_rel_dec_action
 db_rel_risk_action <- rarr::db_rel_risk_action
 db_rel_risk_dec <- rarr::db_rel_risk_dec
 db_rel_risk_risk <- rarr::db_rel_risk_risk
+```
 
-#Wrangle related items
+## Wrangle related items
+```{r wrangle related}
 rel_action_action <- rarr::wrangle_rel_action_action(db_rel_action_action)
 rel_dec_dec <- rarr::wrangle_rel_dec_dec(db_rel_dec_dec)
 rel_dec_action <-rarr::wrangle_rel_dec_action(db_rel_dec_action) 
 rel_risk_action <-rarr::wrangle_rel_risk_action(db_rel_risk_action)
 rel_risk_dec<- rarr::wrangle_rel_risk_dec(db_rel_risk_dec)
 rel_risk_risk <-rarr::wrangle_rel_risk_risk(db_rel_risk_risk)
-
 ```
 
-# Introduction
-
-The network analysis function creates a related items web that can be beneficial for capturing related risk items. This figure is created by combining an items data frame with a relations dataframe. These items are then passed into an igraph object which is then rendered into the dendrogram html widget.
-
 ## Create a dataframe of wrangled risks, actions, and decisions
-
 ```{r create-items}
 items <- rarr::create_items(risk, action, decision)
 ```
 
 ## Build a dataframe of all wrangled relationships
-
-```{r }
-relations<-rarr::create_relations(rel_action_action, rel_dec_action, rel_dec_dec,                          rel_risk_action,rel_risk_dec,rel_risk_risk)
+```{r wrangled relations df}
+relations<-rarr::create_relations(rel_action_action, rel_dec_action, rel_dec_dec,
+                                  rel_risk_action,rel_risk_dec,rel_risk_risk)
 ```
 
 ## Create igraph object to pass into dendrogram
-
 ```{r create network analysis, echo=TRUE}
 relate_igraph <- igraph::graph_from_data_frame(d = relations, 
                                                vertices = items, 
@@ -71,7 +71,6 @@ relate_igraph <- igraph::graph_from_data_frame(d = relations,
 ```
 
 ## Plot network analysis of related items
-
 ```{r, echo=TRUE, out.width="90%", dpi = 300}
 edgebundleR::edgebundle(relate_igraph, 
                         tension = 0.8, 
@@ -79,4 +78,3 @@ edgebundleR::edgebundle(relate_igraph,
                         padding = 70)
 
 ```
-
