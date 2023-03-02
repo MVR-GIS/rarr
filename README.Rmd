@@ -4,6 +4,8 @@ output: md_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- rmarkdown::render(input="README.Rmd", output_file = "README.md", output_format = "md_document") -->
+
 
 <img src="man/figures/kitten-roar4-2.jpg" width=250 align="right" />
 
